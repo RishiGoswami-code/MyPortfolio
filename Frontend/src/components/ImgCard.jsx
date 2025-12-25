@@ -1,6 +1,6 @@
 import React from 'react';
 // 1. Import the image at the top
-import myPicture from '../assets/mypicture.svg'; 
+import myPicture from '../assets/mypicture.png'; 
 
 const ImgCard = ({ alt }) => {
   return (
