@@ -1,12 +1,52 @@
-# React + Vite
+# ⚡ Full-Stack Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance **full-stack portfolio website** built with **React + Vite** on the frontend and **Node.js + Express** on the backend — all maintained in a **single monorepo**.
 
-Currently, two official plugins are available:
+This project showcases not just design, but **engineering discipline, scalability, and real-world architecture**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+-  **React**
+-  **Vite** (blazing-fast bundler)
+-  CSS / Tailwind / Styled Components (choose what you use)
+-  Axios / Fetch API
+
+### Backend
+-  **Node.js**
+-  **Express.js**
+-  Environment-based configuration
+-  REST APIs
+
+### Tooling & DevOps
+-  NPM / PNPM
+-  Concurrently (for running FE + BE together)
+-  ESLint & Prettier
+-  (Optional) Jest / Supertest
+
+---
+
+##  Project Structure
+
+```bash
+portfolio/
+│
+├── Frontend/                 # Frontend (React + Vite)
+│   ├── src/
+│   ├── public/
+│   ├── index.html
+│   └── vite.config.js
+│
+├── server/                 # Backend (Node + Express)
+│   ├── routes/
+│   ├── controllers/
+│   ├── middlewares/
+│   ├── app.js
+│   └── server.js
+│
+├── .gitignore
+├── package.json            # Root scripts
+├── README.md
+└── .gitignore
