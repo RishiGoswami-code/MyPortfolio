@@ -25,7 +25,7 @@ const Navbar = () => {
             <h1 className={`font-pirata text-xl sm:text-2xl md:text-5xl transition-all duration-700 ease-in-out uppercase tracking-tighter whitespace-nowrap text-white ${isScrolled ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
               Rishi Goswami
             </h1>
-            <h1 className={`font-pirata text-xl sm:text-2xl md:text-5xl transition-all duration-700 ease-in-out uppercase tracking-tighter absolute whitespace-nowrap text-white ${isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
+            <h1 className={`font-pirata text-xl sm:text-2xl md:text-5xl transition-all duration-700 ease-in-out uppercase tracking-tighter absolute whitespace-nowrap text-[#eb28b0] ${isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
               Entrepreneur
             </h1>
           </div>
