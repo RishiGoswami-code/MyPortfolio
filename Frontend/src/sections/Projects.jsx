@@ -9,7 +9,7 @@ const Projects = () => {
       description: "End-to-end social media analyzer normalizing YouTube, Reddit, and X data using Gemini API for sentiment mapping.",
       tech: ["Python", "Flask", "Gemini API", "BeautifulSoup"],
       githubLink: "https://github.com/RishiGoswami-code/highpulse",
-      liveLink: "https://highpulse.ai"
+      liveLink: "https://highpulse-ai-vga3.onrender.com/"
     },
     {
       title: "Presensync",
@@ -17,7 +17,7 @@ const Projects = () => {
       description: "Fraud-resistant attendance system verifying identity via GPS, QR codes, facial recognition, and IP checks.",
       tech: ["FastAPI", "Firestore", "Python", "Computer Vision"],
       githubLink: "https://github.com/RishiGoswami-code/presensync",
-      liveLink: "#"
+      liveLink: "https://presensync.vercel.app/"
     },
     {
       title: "Viking Validators (SIH Finalist)",
@@ -25,15 +25,15 @@ const Projects = () => {
       description: "Automated verification system for complex workflows. Built during Smart India Hackathon finals.",
       tech: ["Node.js", "Docker", "Go", "Redis"],
       githubLink: "https://github.com/RishiGoswami-code/viking-validators",
-      liveLink: "#"
+      liveLink: ""
     },
     {
       title: "Sendlume",
       status: "PRODUCTION",
       description: "I am a fullstack engineer there. Building real-time, signal-driven systems and scalable digital products.",
       tech: ["React", "FastAPI", "NLP", "Financial Modeling"],
-      githubLink: "https://github.com/RishiGoswami-code/ragnar",
-      liveLink: "https://ragnar.com"
+      githubLink: "",
+      liveLink: "https://sendlume.com"
     }
   ];
 

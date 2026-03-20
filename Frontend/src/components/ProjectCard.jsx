@@ -40,8 +40,8 @@ const ProjectCard = ({ title, description, tech, githubLink, liveLink, status })
 
         <div className="flex items-center justify-between">
           <div className="flex gap-4">
-            <a href={githubLink} target="_blank" rel="noreferrer" className="text-[8px] font-black uppercase tracking-widest text-black hover:underline underline-offset-4 decoration-2">Source</a>
-            <a href={liveLink} target="_blank" rel="noreferrer" className="text-[8px] font-black uppercase tracking-widest text-black hover:underline underline-offset-4 decoration-2">Live</a>
+            {githubLink && <a href={githubLink} target="_blank" rel="noreferrer" className="text-[8px] font-black uppercase tracking-widest text-black hover:underline underline-offset-4 decoration-2">Source</a>}
+            {liveLink && <a href={liveLink} target="_blank" rel="noreferrer" className="text-[8px] font-black uppercase tracking-widest text-black hover:underline underline-offset-4 decoration-2">Live</a>}
           </div>
           <span className="text-[7px] font-mono text-black lowercase">id: {title.toLowerCase().replace(/[^a-z0-9]/g, '_')}_01</span>
         </div>

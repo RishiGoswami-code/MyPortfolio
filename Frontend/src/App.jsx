@@ -8,9 +8,22 @@ import GithubStats from './sections/GithubStats';
 import Footer from './components/Footer';
 
 const MarginGrid = ({ side }) => (
-  <div className={`hidden lg:block flex-1 ${side === 'left' ? 'border-r-2' : 'border-l-2'} border-black bg-zinc-50/20 relative self-stretch`}>
-    <div className="absolute inset-0 bg-hatched opacity-40" />
-    <div className="absolute inset-0 bg-akira-grid" />
+  <div className={`hidden lg:block flex-1 ${side === 'left' ? 'border-r-2' : 'border-l-2'} border-black bg-zinc-50/10 relative self-stretch`}>
+    <div className="absolute inset-0 bg-hatched opacity-30" />
+    <div className="absolute inset-0 bg-akira-grid opacity-80" />
+
+    {/* Akira-style joint markers */}
+    <div className="absolute inset-0 flex flex-col">
+      {Array.from({ length: 100 }).map((_, i) => (
+        <div key={i} className="h-[60px] w-full relative">
+          <div className={`absolute -bottom-[4px] ${side === 'left' ? '-right-[4px]' : '-left-[4px]'} w-2 h-2 rounded-full border-2 border-black bg-white z-30`} />
+          {i % 5 === 0 && (
+            <div className={`absolute -bottom-[2px] ${side === 'left' ? 'left-4' : 'right-4'} w-1 h-1 rounded-full bg-black/20`} />
+          )}
+        </div>
+      ))}
+    </div>
+
     {side === 'left' && (
       <div className="sticky top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-10">
         

@@ -12,11 +12,11 @@ const GithubStats = () => {
 
     useEffect(() => {
         const fetchGithubData = async () => {
-            const token = import.meta.env.VITE_GITHUB_TOKEN;
+            const token = import.meta.env.GITHUB_TOKEN;
             const headers = token ? { Authorization: `token ${token}` } : {};
 
             try {
-                const response = await fetch('https://api.github.com/users/chandangiri', { headers });
+                const response = await fetch('https://api.github.com/users/RishiGoswami-code', { headers });
                 const data = await response.json();
                 setStats(prev => ({
                     ...prev,
@@ -96,7 +96,7 @@ const GithubStats = () => {
                     <div className="mt-4 flex justify-between items-baseline">
                         <span className="text-[7px] font-bold text-black uppercase tracking-[0.4em]">LOG_X_2026</span>
                         <a
-                            href="https://github.com/chandangiri"
+                            href="https://github.com/RishiGoswami-code"
                             target="_blank"
                             rel="noreferrer"
                             className="text-[9px] font-black uppercase tracking-widest border border-black px-2 py-1 hover:bg-black hover:text-white transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
