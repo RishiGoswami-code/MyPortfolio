@@ -2,65 +2,48 @@ import React from 'react';
 import { SiGithub } from 'react-icons/si';
 import { FiExternalLink } from 'react-icons/fi';
 
-const ProjectCard = ({ title, description, tech, githubLink, liveLink, image }) => {
+const ProjectCard = ({ title, description, tech, githubLink, liveLink, status }) => {
   return (
-    <div className="w-[300px] md:w-[380px] group relative bg-zinc-900/60 backdrop-blur-sm border border-white/5 rounded-[24px] overflow-hidden transition-all duration-500 hover:border-white/20 flex flex-col shadow-xl">
-      
-      {/* 1. Shorter Image Area */}
-      <div className="h-32 md:h-40 bg-zinc-800 overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent z-10" />
-        <img 
-          src={image} 
-          alt={title}
-          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-        />
-        <div className="absolute top-3 right-3 z-20">
-          <div className="px-2 py-0.5 bg-black/60 border border-white/10 rounded-full text-[8px] uppercase tracking-widest font-bold text-white/50">
-            v.1.0
+    <div className="relative group w-full bg-white border-b border-zinc-100 rounded-none overflow-hidden transition-all duration-300 hover:bg-zinc-50">
+      {/* Technical Blueprint */}
+      <div className="relative w-full aspect-[21/9] bg-zinc-50 border-b border-zinc-100 flex flex-col justify-center items-center p-6 overflow-hidden group/blueprint">
+        <div className="absolute inset-0 bg-hatched opacity-20 pointer-events-none" />
+
+        <div className="relative z-10 text-center">
+          <div className="text-[7px] font-bold uppercase tracking-[0.4em] text-black mb-2 animate-pulse">
+            STATUS: {status || 'DEPLOYED'}
           </div>
+          <h4 className="text-xl font-black tracking-tighter text-black uppercase mb-1 leading-none">
+            {title}
+          </h4>
+          <div className="flex gap-1 justify-center">
+            {tech.slice(0, 3).map(tag => (
+              <span key={tag} className="text-[7px] font-bold text-zinc-400 uppercase tracking-widest border border-zinc-200 px-1 py-0.25">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Binary Rain Decoration */}
+        <div className="absolute bottom-2 right-2 text-[6px] font-mono text-zinc-200 leading-tight text-right pointer-events-none overflow-hidden h-10 w-24">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i}>0x{Math.floor(Math.random() * 0xFFFFFF).toString(16).toUpperCase()}</div>
+          ))}
         </div>
       </div>
 
-      {/* 2. Tightened Content Area */}
-      <div className="p-5 flex-1 flex flex-col">
-        <div className="mb-3">
-          <h3 className="font-pirata text-2xl tracking-tighter text-white uppercase group-hover:text-[#eb28b0] transition-colors leading-none mb-2">
-            {title}
-          </h3>
-          <p className="text-zinc-500 text-[11px] leading-snug line-clamp-2">
-            {description}
-          </p>
-        </div>
+      <div className="p-4">
+        <p className="text-[11px] text-zinc-500 leading-relaxed mb-4 line-clamp-2 uppercase font-mono">
+          {description}
+        </p>
 
-        {/* 3. Single Row Tech Tags */}
-        <div className="flex gap-2 overflow-hidden mb-5">
-          {tech.slice(0, 3).map((item, idx) => (
-            <span key={idx} className="text-[8px] font-bold text-white/20 uppercase tracking-tighter bg-white/5 px-2 py-0.5 rounded">
-              {item}
-            </span>
-          ))}
-          {tech.length > 3 && <span className="text-[8px] text-white/10">+{tech.length - 3}</span>}
-        </div>
-
-        {/* 4. Compact Buttons */}
-        <div className="mt-auto flex items-center gap-2">
-          <a 
-            href={githubLink} 
-            target="_blank" 
-            className="flex-1 flex items-center justify-center gap-1.5 py-2 bg-white/5 border border-white/10 rounded-xl text-[9px] font-black uppercase tracking-widest text-white/40 hover:text-white transition-all"
-          >
-            <SiGithub size={12} />
-            Code
-          </a>
-
-          <a 
-            href={liveLink} 
-            target="_blank" 
-            className="flex-1 flex items-center justify-center gap-1.5 py-2 bg-white text-black rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-[#eb28b0] hover:text-white transition-all shadow-md"
-          >
-            <FiExternalLink size={12} />
-            Live
-          </a>
+        <div className="flex items-center justify-between">
+          <div className="flex gap-4">
+            <a href={githubLink} target="_blank" rel="noreferrer" className="text-[8px] font-black uppercase tracking-widest text-black hover:underline underline-offset-4 decoration-2">Source</a>
+            <a href={liveLink} target="_blank" rel="noreferrer" className="text-[8px] font-black uppercase tracking-widest text-black hover:underline underline-offset-4 decoration-2">Live</a>
+          </div>
+          <span className="text-[7px] font-mono text-black lowercase">id: {title.toLowerCase().replace(/[^a-z0-9]/g, '_')}_01</span>
         </div>
       </div>
     </div>

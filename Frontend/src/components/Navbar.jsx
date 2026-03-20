@@ -2,60 +2,38 @@ import React, { useState, useEffect } from 'react';
 import DiscussionButton from './DiscussionButton';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <nav className="fixed top-0 w-full z-50 px-2 sm:px-6 py-4">
-      {/* 1. Changed justify-between to ensure even spacing.
-        2. Removed excessive padding-x (px) so content hits the rounded edges.
-      */}
-      <div className="max-w-full mx-auto flex items-center justify-between bg-black/90 backdrop-blur-xl border border-white/10 p-1 md:p-2 rounded-full shadow-2xl overflow-hidden">
-        
-        {/* LEFT SLOT: Heading (Your Name) - Moved to far left */}
-        <div className="flex-1 flex justify-start items-center pl-4 md:pl-8">
-          <div className="flex flex-col items-start overflow-hidden h-[30px] md:h-[50px] justify-center relative">
-            <h1 className={`font-pirata text-xl sm:text-2xl md:text-5xl transition-all duration-700 ease-in-out uppercase tracking-tighter whitespace-nowrap text-white ${isScrolled ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
-              Rishi Goswami
-            </h1>
-            <h1 className={`font-pirata text-xl sm:text-2xl md:text-5xl transition-all duration-700 ease-in-out uppercase tracking-tighter absolute whitespace-nowrap text-[#eb28b0] ${isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
-              Entrepreneur
-            </h1>
-          </div>
+    <nav className="sticky top-0 w-full z-50 bg-white border-b-2 border-black h-12 flex items-center">
+      <div className="w-full px-4 md:px-12 flex justify-between items-center">
+
+        {/* LOGO */}
+        <div className="flex items-center">
+          <a href="#hero" className="font-black text-base tracking-tighter text-black uppercase bg-black text-white px-2 py-0.5 border-2 border-black">
+            CG<span className="text-zinc-400">.03</span>
+          </a>
         </div>
 
-        {/* CENTER SLOT: Info Points - Stays centered */}
-        <div className="hidden md:flex flex-1 justify-center items-center gap-4 lg:gap-10">
-          <div className="flex flex-col items-start leading-tight">
-            <span className="text-[8px] md:text-[10px] text-white/40 uppercase font-medium">Portfolio of</span>
-            <span className="text-[10px] md:text-xs text-white/90 font-bold uppercase tracking-widest">Chandan Giri</span>
-          </div>
-          
-          <div className="h-6 w-[1px] bg-white/20"></div>
-
-          <div className="flex gap-4 lg:gap-8">
-            {['Showcase', 'About'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
-                className="text-[10px] md:text-xs text-white/50 hover:text-white transition-all uppercase tracking-[0.2em] font-semibold"
-              >
-                {item}
-              </a>
-            ))}
-          </div>
+        {/* NAVIGATION LINKS */}
+        <div className="hidden lg:flex items-center gap-2">
+          {['Showcase', 'About', 'Stats', 'Services'].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="px-4 py-1 border-2 border-black text-[9px] font-black uppercase tracking-[0.2em] text-black hover:bg-black hover:text-white transition-all bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none translate-x-[-1px] translate-y-[-1px] hover:translate-x-0 hover:translate-y-0"
+            >
+              {item}
+            </a>
+          ))}
         </div>
 
-        {/* RIGHT SLOT: Chat Button - Moved to far right */}
-        <div className="flex-1 flex justify-end pr-1">
-          <DiscussionButton />
+        {/* ACTION BUTTON */}
+        <div className="flex items-center">
+          <a
+            href="mailto:chandangi2005@gmail.com"
+            className="px-6 py-1.5 bg-[#ff0000] text-white rounded-none text-[9px] font-black uppercase tracking-widest hover:bg-black transition-all border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+          >
+            SYS_INIT
+          </a>
         </div>
       </div>
     </nav>

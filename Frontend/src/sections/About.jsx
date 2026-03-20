@@ -1,59 +1,55 @@
-import React from 'react';
-import ProfileCard from '../components/ProfileCard';
 import ArchitectSection from '../components/ArchitectSection';
+import ProfileCard from '../components/ProfileCard';
 
 const About = () => {
-  const expertises = [
-    {
-      title: "Scalable Tech",
-      description: "Building software that doesn't just work today, but handles the traffic of tomorrow.",
-      icon: "🚀"
-    },
-    {
-      title: "UI/UX Strategy",
-      description: "High-end design meets functional code. Aesthetic is my secondary language.",
-      icon: "🎨"
-    }
-  ];
-
   return (
-    <section 
-      id="about" 
-      className="sticky top-0 min-h-screen bg-[#0a0a0a] text-white pt-32 pb-20 px-6 md:px-12 z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
-    >
-      <div className="max-w-[1400px] mx-auto">
-        
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-baseline mb-24 gap-8">
-          <h2 className="font-pirata text-6xl md:text-9xl tracking-tighter uppercase leading-none">
-            The <span className="text-white/20">Vision</span>
-          </h2>
-          <div className="max-w-md">
-            <p className="text-white/50 text-sm uppercase tracking-[0.3em] font-semibold mb-4">/ Engineering POV</p>
-            <p className="text-zinc-400 text-lg leading-relaxed font-large">
-              Bridging the gap between raw code and commercial success. I architect digital assets that scale through strategic software engineering.
+    <div id="about" className="bg-white">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+        {/* Left Column: Vision & Principles */}
+        <div className="lg:col-span-8 lg:pr-8 lg:border-r border-zinc-100">
+          <div className="mb-12">
+            <span className="text-[8px] font-bold uppercase tracking-[0.4em] text-black mb-2 block">
+              VISION_CORE_0.1
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-black uppercase leading-[0.9] mb-4">
+              MODERN <span className="text-zinc-200">ARCHITECT</span>
+            </h2>
+            <p className="text-[13px] text-zinc-500 max-w-xl leading-relaxed uppercase font-mono">
+              "Building digital ecosystems where performance meets aesthetics, and complex logic becomes a seamless user experience."
             </p>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="md:border-r border-zinc-50 md:pr-8">
+              <ArchitectSection />
+            </div>
+
+            <div className="space-y-6">
+              <h4 className="text-[8px] font-bold uppercase tracking-[0.4em] text-black">CORE_PRINCIPLES</h4>
+              <ul className="space-y-4">
+                {[
+                  { title: "Scalability", desc: "Code that grows with the business." },
+                  { title: "Precision", desc: "Pixel-perfect and bug-free delivery." },
+                  { title: "Innovation", desc: "Integrating AI at the core of logic." }
+                ].map((p, i) => (
+                  <li key={i} className="group">
+                    <span className="text-[10px] font-black text-black uppercase tracking-widest block mb-1 group-hover:text-zinc-400 transition-colors">{" >> "} {p.title}</span>
+                    <p className="text-zinc-400 text-[9px] font-mono uppercase">{p.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          
-          {/* Left Column: Architect Branding & Cards */}
-          <div className="lg:col-span-7 space-y-20">
-            
-            {/* 1. Imported Resume-based Architect Section */}
-            <ArchitectSection />
-
-          </div>
-
-          {/* Right Column: Floating Profile Widget */}
-          <div className="lg:col-span-5 sticky top-32 flex justify-center lg:justify-end">
-            <ProfileCard />
-          </div>
-          
+        {/* Right Column: Profile Card */}
+        <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
+          <ProfileCard />
         </div>
+
       </div>
-    </section>
+    </div>
   );
 };
 

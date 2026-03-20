@@ -1,79 +1,77 @@
-import React from 'react';
-// Note: You can install react-icons using: npm install react-icons
-import { 
-  SiReact, 
-  SiNodedotjs, 
-  SiFastapi, 
-  SiExpress, 
-  SiPython, 
-  SiJavascript, 
-  SiMongodb, 
-  SiFlask 
-} from 'react-icons/si';
+import { FiUser, FiMapPin, FiMail } from 'react-icons/fi';
+import { SiReact, SiPython, SiFastapi, SiTailwindcss, SiJavascript } from 'react-icons/si';
 
 const ProfileCard = () => {
-  const skills = [
-    { Icon: SiReact, color: '#61DAFB', name: 'React' },
-    { Icon: SiNodedotjs, color: '#646CFF', name: 'Node.js' },
-    { Icon: SiFastapi, color: '#ffffff', name: 'FastAPI' },
-    { Icon: SiExpress, color: '#FF9900', name: 'Express' },
-    { Icon: SiPython, color: '#3776AB', name: 'Python' },
-    { Icon: SiJavascript, color: '#F7DF1E', name: 'JS' },
-    { Icon: SiMongodb, color: '#47A248', name: 'MongoDB' },
-    { Icon: SiFlask, color: '#ffffff', name: 'Flask' },
-  ];
-
   return (
-    <div className="w-full max-w-[320px] bg-zinc-900/80 backdrop-blur-xl border border-white/10 p-6 rounded-[32px] shadow-2xl transition-all duration-500 hover:border-white/30">
-      
-      {/* Header Area */}
-      <div className="mb-6">
-        <h3 className="font-pirata text-2xl tracking-tighter uppercase text-white mb-4">
-          Focus
-        </h3>
-        <ul className="space-y-3">
-          {[
-            { label: 'Work', val: 'Freelance' },
-            { label: 'Role', val: 'Entrepreneur' },
-            { label: 'Map', val: 'Remote' }
-          ].map((item) => (
-            <li key={item.label} className="flex justify-between items-center border-b border-white/5 pb-1.5">
-              <span className="text-[9px] uppercase tracking-widest text-white/40 font-bold">{item.label}</span>
-              <span className="text-[11px] font-bold text-white uppercase tracking-tight">{item.val}</span>
-            </li>
-          ))}
-        </ul>
+    <div className="relative group w-full max-w-sm bg-white border border-zinc-100 rounded-none overflow-hidden transition-all duration-300 hover:border-zinc-300 shadow-sm hover:shadow-md">
+      {/* Corner Accents */}
+      <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-zinc-200 group-hover:border-black transition-colors z-20" />
+      <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-zinc-200 group-hover:border-black transition-colors z-20" />
+      <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-zinc-200 group-hover:border-black transition-colors z-20" />
+      <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-zinc-200 group-hover:border-black transition-colors z-20" />
+
+      {/* Header Profile Info */}
+      <div className="p-6 border-b border-zinc-100 bg-white">
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-12 h-12 rounded-none bg-black flex flex-col items-center justify-center text-white border border-black hover:bg-white hover:text-black transition-all">
+            <span className="text-[9px] font-black leading-none">SYS</span>
+            <span className="text-base font-black tracking-tighter">CG</span>
+          </div>
+          <div>
+            <h4 className="text-base font-black tracking-tighter text-black uppercase leading-none mb-1">Chandan Giri</h4>
+            <p className="text-[9px] font-bold uppercase tracking-widest text-black font-mono">NODE_UID: 2005-IND-01</p>
+          </div>
+        </div>
+
+        <div className="space-y-1.5 pt-2">
+          <div className="flex items-center gap-2 text-[10px] text-black font-mono uppercase">
+            <FiMapPin size={8} className="text-black" />
+            <span>Lucknow, India</span>
+          </div>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=chandangi2005@gmail.com"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 text-[10px] text-black font-mono uppercase hover:text-[#ff0000] transition-colors"
+          >
+            <FiMail size={8} className="text-black" />
+            <span>chandangi2005@gmail.com</span>
+          </a>
+        </div>
       </div>
 
-      {/* Skills Area with Logos */}
-      <div className="mb-8">
-        <p className="text-[9px] uppercase tracking-[0.2em] font-black mb-4 text-white/30 text-center">Tech Stack</p>
-        <div className="grid grid-cols-4 gap-4 place-items-center">
-          {skills.map((skill) => (
-            <div 
-              key={skill.name} 
-              className="group relative flex items-center justify-center w-10 h-10 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-              title={skill.name}
-            >
-              <skill.Icon 
-                size={20} 
-                className="text-white/40 group-hover:text-white transition-colors duration-300" 
-                style={{ color: skill.color === '#ffffff' ? undefined : '' }} // Optional: Use real colors on hover
-              />
-              
-              {/* Tooltip on Hover */}
-              <span className="absolute -top-8 scale-0 group-hover:scale-100 transition-all bg-white text-black text-[8px] font-bold px-2 py-1 rounded-md uppercase">
-                {skill.name}
-              </span>
+      {/* Experience / Stats Grid */}
+      <div className="grid grid-cols-2 border-b-2 border-black">
+        <div className="p-3 border-r-2 border-black flex flex-col items-center group/item hover:bg-zinc-50 transition-colors">
+          <span className="text-lg font-black tracking-tighter text-black leading-none">01</span>
+          <span className="text-[7px] font-bold uppercase tracking-widest text-black mt-1">Year_Exp</span>
+        </div>
+        <div className="p-3 flex flex-col items-center group/item hover:bg-zinc-50 transition-colors">
+          <span className="text-lg font-black tracking-tighter text-black leading-none">40+</span>
+          <span className="text-[7px] font-bold uppercase tracking-widest text-black mt-1">Repo_Count</span>
+        </div>
+      </div>
+
+      {/* Skills Marquee / List */}
+      <div className="p-6 bg-white">
+        <div className="flex flex-wrap gap-2">
+          {[<SiReact />, <SiPython />, <SiFastapi />, <SiTailwindcss />, <SiJavascript />].map((icon, idx) => (
+            <div key={idx} className="w-9 h-9 border border-zinc-100 rounded-none flex items-center justify-center text-zinc-300 hover:text-black hover:border-zinc-300 transition-all cursor-crosshair">
+              {icon}
             </div>
           ))}
         </div>
       </div>
-
       {/* Action Button */}
-      <button className="w-full bg-white text-black py-3 rounded-xl font-black uppercase tracking-widest text-[10px] hover:bg-zinc-200 transition-all active:scale-95 shadow-lg shadow-white/5">
-        Download Resume
-      </button>
+      <div className="p-6 pt-0">
+        <a
+          href="/Chandan Giri Resume.pdf"
+          download
+          className="w-full bg-[#ff0000] text-white py-3 rounded-none font-black uppercase tracking-widest text-[9px] hover:bg-black transition-all border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none translate-x-[-2px] translate-y-[-2px] hover:translate-x-0 hover:translate-y-0 flex items-center justify-center"
+        >
+          DOWNLOAD_RESUME_v.02
+        </a>
+      </div>
     </div>
   );
 };

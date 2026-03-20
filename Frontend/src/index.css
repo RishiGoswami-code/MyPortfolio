@@ -1,22 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap');
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
-
 @theme {
-  --font-pirata: "Pirata One", system-ui;
-  
-  /* Modern Dark Slate & Electric Indigo Palette */
-  --color-brand-bg: #0a0a0c;
-  --color-brand-accent: #6366f1;
-  --color-brand-muted: #1e1e24;
-  --color-brand-text: #f4f4f5;
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "Share Tech Mono", monospace;
+
+  --color-brand: #000000;
+  --color-akira-red: #ff0000;
+  --color-zinc-50: #f8f8f8;
+  --color-zinc-100: #e8e8e8;
+  --color-zinc-200: #d0d0d0;
+  --color-zinc-300: #a0a0a0;
+  --color-zinc-400: #606060;
+  --color-zinc-500: #404040;
+  --color-zinc-900: #101010;
+  --color-zinc-950: #050505;
+
   @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
 
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.bg-hatched {
+  background-image: repeating-linear-gradient(45deg,
+      transparent,
+      transparent 10px,
+      rgba(0, 0, 0, 0.03) 10px,
+      rgba(0, 0, 0, 0.03) 11px);
+}
+
+.bg-akira-grid {
+  background-image: linear-gradient(to bottom,
+      transparent 39px,
+      rgba(0, 0, 0, 0.05) 39px,
+      rgba(0, 0, 0, 0.05) 40px);
+  background-size: 100% 40px;
+}
+
 body {
-  background-color: var(--color-brand-bg);
-  color: var(--color-brand-text);
+  background-color: white;
+  color: black;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  /* Slightly larger base font */
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+a,
+button {
+  font-family: var(--font-mono);
 }
