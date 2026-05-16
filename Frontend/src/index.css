@@ -1,76 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --font-inter: "Inter", sans-serif;
-  --font-mono: "Share Tech Mono", monospace;
+:root {
+  --cream: #F7F4EE;
+  --cream-dark: #EDE9E0;
+  --ink: #1C1A16;
+  --ink-light: #5C5751;
+  --ink-ghost: #9C9890;
+  --gold: #B8975A;
+  --gold-light: #D4B07A;
+  --line: rgba(28, 26, 22, 0.10);
 
-  --color-brand: #000000;
-  --color-akira-red: #ff0000;
-  --color-zinc-50: #f8f8f8;
-  --color-zinc-100: #e8e8e8;
-  --color-zinc-200: #d0d0d0;
-  --color-zinc-300: #a0a0a0;
-  --color-zinc-400: #606060;
-  --color-zinc-500: #404040;
-  --color-zinc-900: #101010;
-  --color-zinc-950: #050505;
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-50%);
-    }
-  }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 30s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-.bg-hatched {
-  background-image: repeating-linear-gradient(45deg,
-      transparent,
-      transparent 10px,
-      rgba(0, 0, 0, 0.08) 10px,
-      rgba(0, 0, 0, 0.08) 11px);
-}
-
-.bg-akira-grid {
-  background-image: linear-gradient(to bottom,
-      transparent 58px,
-      rgba(0, 0, 0, 0.15) 58px,
-      rgba(0, 0, 0, 0.15) 60px);
-  background-size: 100% 60px;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 body {
-  background-color: white;
-  color: black;
-  font-family: var(--font-inter);
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
   font-size: 14px;
-  /* Slightly larger base font */
+  line-height: 1.85;
   -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-span,
-p,
-a,
-button {
-  font-family: var(--font-mono);
+* {
+  box-sizing: border-box;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 350ms ease forwards;
 }

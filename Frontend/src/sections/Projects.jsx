@@ -1,62 +1,53 @@
 import React from 'react';
-import ProjectCard from '../components/ProjectCard';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
-const Projects = () => {
-  const myProjects = [
-    {
-      title: "HighPulse.ai",
-      status: "STABLE",
-      description: "End-to-end social media analyzer normalizing YouTube, Reddit, and X data using Gemini API for sentiment mapping.",
-      tech: ["Python", "Flask", "Gemini API", "BeautifulSoup"],
-      githubLink: "https://github.com/RishiGoswami-code/highpulse",
-      liveLink: "https://highpulse-ai-vga3.onrender.com/"
-    },
-    {
-      title: "Presensync",
-      status: "BETA",
-      description: "Fraud-resistant attendance system verifying identity via GPS, QR codes, facial recognition, and IP checks.",
-      tech: ["FastAPI", "Firestore", "Python", "Computer Vision"],
-      githubLink: "https://github.com/RishiGoswami-code/presensync",
-      liveLink: "https://presensync.vercel.app/"
-    },
-    {
-      title: "Viking Validators (SIH Finalist)",
-      status: "STAGING",
-      description: "Automated verification system for complex workflows. Built during Smart India Hackathon finals.",
-      tech: ["Node.js", "Docker", "Go", "Redis"],
-      githubLink: "https://github.com/RishiGoswami-code/viking-validators",
-      liveLink: ""
-    },
-    {
-      title: "Sendlume",
-      status: "PRODUCTION",
-      description: "I am a fullstack engineer there. Building real-time, signal-driven systems and scalable digital products.",
-      tech: ["React", "FastAPI", "NLP", "Financial Modeling"],
-      githubLink: "",
-      liveLink: "https://sendlume.com"
-    }
-  ];
+export default function Projects() {
+  const { projects } = usePortfolioData();
 
   return (
-    <div id="showcase" className="bg-white">
-      <div className="mb-12">
-        <span className="text-[8px] font-bold uppercase tracking-widest text-black mb-2 block">
-          LOG_SHOWCASE_0.1
-        </span>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-black uppercase leading-none">
-          SYSTEM <span className="text-zinc-200">TIMELINE</span>
-        </h2>
-      </div>
+    <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8 pb-16">
+      {projects.map((project, idx) => (
+        <a 
+          key={idx} 
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block bg-[var(--cream-dark)] border-[0.5px] border-[var(--line)] rounded-[4px] p-6 transition-colors duration-200 hover:border-[var(--gold-light)] flex flex-col h-full"
+        >
+          <div className="flex flex-col flex-1">
+            <span className="text-[13px] text-[var(--gold)] font-medium uppercase tracking-[0.1em] mb-2" style={{ fontFamily: 'var(--font-body)' }}>
+              {project.eyebrow}
+            </span>
+            <h3 className="text-[26px] text-[var(--ink)] font-normal mb-2" style={{ fontFamily: 'var(--font-display)' }}>
+              {project.name}
+            </h3>
+            <p className="text-[16px] font-light text-[var(--ink-light)] line-clamp-2 mb-6 leading-[1.75]" style={{ fontFamily: 'var(--font-body)' }}>
+              {project.desc}
+            </p>
+            
+            <div className="mt-auto mb-6">
+              <div className="text-[36px] text-[var(--gold)] font-normal leading-none" style={{ fontFamily: 'var(--font-display)' }}>
+                {project.stat}
+              </div>
+              <div className="text-[13px] text-[var(--ink-ghost)] font-normal mt-1" style={{ fontFamily: 'var(--font-body)' }}>
+                {project.statLabel}
+              </div>
+            </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-zinc-100 border border-zinc-100">
-        {myProjects.map((project, index) => (
-          <div key={index} className="bg-white">
-            <ProjectCard {...project} />
+            <div className="flex flex-wrap gap-2">
+              {project.tech.map((tech, tIdx) => (
+                <span 
+                  key={tIdx} 
+                  className="bg-[var(--cream-dark)] border-[0.5px] border-[var(--line)] rounded-[2px] px-2 py-[2px] text-[13px] text-[var(--ink)] tracking-[0.06em]" 
+                  style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
+        </a>
+      ))}
     </div>
   );
-};
-
-export default Projects;
+}
