@@ -1,41 +1,37 @@
 import React from 'react';
+import { Trophy, GraduationCap, Award, GitPullRequest, Star } from 'lucide-react';
 import { usePortfolioData } from '../hooks/usePortfolioData';
+
+function iconFor(title) {
+  const t = title.toLowerCase();
+  if (t.includes('hackathon')) return Trophy;
+  if (t.includes('sitare')) return GraduationCap;
+  if (t.includes('scholarship')) return Award;
+  if (t.includes('open source')) return GitPullRequest;
+  return Star;
+}
 
 export default function Achievements() {
   const { achievements } = usePortfolioData();
 
   return (
-    <div className="animate-fade-up flex flex-col pt-8 pb-16">
-      {achievements.map((item, idx) => {
-        const indexNumber = String(idx + 1).padStart(2, '0');
+    <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 gap-5 pt-8 pb-16">
+      {achievements.map((item) => {
+        const Icon = iconFor(item.title);
         return (
-          <div 
-            key={idx} 
-            className="flex flex-row gap-5 py-6 border-b-[0.5px] border-[var(--line)] first:pt-0 last:border-b-0 items-start"
-          >
-            {/* Left Index */}
-            <div 
-              className="text-[56px] font-light leading-[1] text-[var(--cream)] select-none shrink-0" 
-              style={{ 
-                fontFamily: 'var(--font-display)',
-                WebkitTextStroke: '1px var(--gold-light)'
-              }}
-            >
-              {indexNumber}
+          <div key={item.title} className="card flex flex-col gap-4 p-6">
+            <div className="flex items-center justify-between gap-4">
+              <span className="flex items-center justify-center w-11 h-11 rounded-full bg-[var(--cream)] border border-[var(--gold-light)] text-[var(--gold)]">
+                <Icon size={19} strokeWidth={1.6} aria-hidden="true" />
+              </span>
+              <span className="eyebrow">{item.year}</span>
             </div>
-
-            {/* Right Content */}
-            <div className="flex flex-col flex-1 pt-1">
-              <h3 className="text-[24px] text-[var(--ink)] font-normal mb-1" style={{ fontFamily: 'var(--font-display)' }}>
-                {item.title}
-              </h3>
-              <p className="text-[16px] font-light text-[var(--ink-light)] leading-[1.75]" style={{ fontFamily: 'var(--font-body)' }}>
-                {item.desc}
-              </p>
-              <div className="text-[13px] text-[var(--gold)] uppercase font-medium mt-2 tracking-[0.1em]" style={{ fontFamily: 'var(--font-body)' }}>
-                {item.year}
-              </div>
-            </div>
+            <h3 className="text-[24px] leading-[1.25] text-[var(--ink)] font-normal" style={{ fontFamily: 'var(--font-display)' }}>
+              {item.title}
+            </h3>
+            <p className="text-[16px] font-light text-[var(--ink-light)] leading-[1.75]">
+              {item.desc}
+            </p>
           </div>
         );
       })}
