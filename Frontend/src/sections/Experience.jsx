@@ -1,55 +1,53 @@
 import React from 'react';
+import { Briefcase, ScanSearch, Bot, GraduationCap, Mail } from 'lucide-react';
 import { usePortfolioData } from '../hooks/usePortfolioData';
+
+const companyIcons = {
+  'AMIPI INC.': ScanSearch,
+  'MELBOURNE MAMA CREATIVE SPACE': Bot,
+  OZYMORLAB: GraduationCap,
+  SENDLUME: Mail,
+};
 
 export default function Experience() {
   const { experience } = usePortfolioData();
 
   return (
-    <div className="animate-fade-up flex flex-col pt-8 pb-16">
-      {experience.map((item, idx) => (
-        <div 
-          key={idx} 
-          className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-6 sm:gap-6 py-8 border-b-[0.5px] border-[var(--line)] first:pt-0 last:border-b-0"
-        >
-          {/* Left Meta */}
-          <div className="sm:text-right flex flex-col pt-1">
-            <span className="text-[15px] text-[var(--ink-ghost)] italic" style={{ fontFamily: 'var(--font-display)' }}>
-              {item.period}
-            </span>
-            <span className="text-[13px] text-[var(--gold)] uppercase font-medium mt-1 tracking-[0.1em]" style={{ fontFamily: 'var(--font-body)' }}>
-              {item.company}
-            </span>
-          </div>
+    <ol className="animate-fade-up relative flex flex-col pt-8 pb-16">
+      {/* Timeline rail */}
+      <span aria-hidden="true" className="absolute left-[19px] top-10 bottom-16 w-px bg-[var(--line)]" />
 
-          {/* Right Content */}
-          <div className="flex flex-col">
-            <h3 className="text-[24px] text-[var(--ink)] font-normal mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+      {experience.map((item) => {
+        const Icon = companyIcons[item.company] || Briefcase;
+        return (
+          <li key={item.company + item.period} className="group relative pl-14 sm:pl-16 pb-12 last:pb-0">
+            <span className="absolute left-0 top-0 flex items-center justify-center w-10 h-10 rounded-full bg-[var(--cream)] border border-[var(--gold-light)] text-[var(--gold)] transition-colors duration-200 group-hover:bg-[var(--gold)] group-hover:text-[var(--cream)]">
+              <Icon size={18} strokeWidth={1.6} aria-hidden="true" />
+            </span>
+
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-[6px] mb-2">
+              <span className="eyebrow">{item.company}</span>
+              <span aria-hidden="true" className="w-1 h-1 rounded-full bg-[var(--ink-ghost)]" />
+              <span className="text-[15px] text-[var(--ink-ghost)] italic leading-[1.6]" style={{ fontFamily: 'var(--font-display)' }}>
+                {item.period}
+              </span>
+            </div>
+
+            <h3 className="text-[26px] leading-[1.25] text-[var(--ink)] font-normal mb-4" style={{ fontFamily: 'var(--font-display)' }}>
               {item.role}
             </h3>
-            
-            <ul className="flex flex-col gap-3 mb-6">
-              {item.bullets.map((bullet, bIdx) => (
-                <li key={bIdx} className="relative pl-5 text-[16px] font-light text-[var(--ink-light)] leading-[1.75]" style={{ fontFamily: 'var(--font-body)' }}>
-                  <span className="absolute left-0 top-[2px] text-[var(--gold)]">—</span>
+
+            <ul className="flex flex-col gap-3 max-w-[760px]">
+              {item.bullets.map((bullet) => (
+                <li key={bullet} className="relative pl-5 text-[16px] font-light text-[var(--ink-light)] leading-[1.75]">
+                  <span className="absolute left-0 top-[12px] w-[6px] h-px bg-[var(--gold)]" />
                   {bullet}
                 </li>
               ))}
             </ul>
-
-            <div className="flex flex-wrap gap-2">
-              {item.tags.map((tag, tIdx) => (
-                <span 
-                  key={tIdx} 
-                  className="bg-[var(--cream-dark)] border-[0.5px] border-[var(--line)] rounded-[2px] px-2 py-[2px] text-[13px] text-[var(--ink)] tracking-[0.06em]" 
-                  style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+          </li>
+        );
+      })}
+    </ol>
   );
 }

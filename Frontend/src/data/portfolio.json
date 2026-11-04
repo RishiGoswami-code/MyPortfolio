@@ -1,17 +1,63 @@
 {
   "meta": {
-    "eyebrow": "PORTFOLIO",
-    "name": ["Chandan", "Giri"],
-    "title": "Full-Stack & AI Engineer",
-    "summary": "Smart India Hackathon 2025 National Finalist and Full-Stack & AI Engineer with production experience at Sendlume. Open-source contributor across organizations including sktime. Specializing in backend engineering, distributed systems, and AI/ML pipelines.",
-    "links": [
-      { "label": "GitHub", "url": "https://github.com/RishiGoswami-code" },
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/chandan-giri-307927247/" },
-      { "label": "Email", "url": "mailto:su-24036@sitare.org" }
+    "name": [
+      "Chandan",
+      "Giri"
     ],
-    "badge": { "label": "LOCATION", "value": "Lucknow, India" }
+    "title": "AI Engineer & Researcher",
+    "summary": "AI Engineer and researcher, Smart India Hackathon 2025 National Finalist, with production experience at Sendlume. Currently building AI-native products at AMIPI and architecting DRISHTI-UGV, a ROS 2 autonomous navigation stack. Open-source contributor to projects including CodeGraphContext and sktime. Specializing in AI/ML pipelines, backend engineering and distributed systems.",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/RishiGoswami-code"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/chandan-giri-307927247/"
+      },
+      {
+        "label": "X",
+        "url": "https://x.com/RishiGoswamii"
+      },
+      {
+        "label": "Threads",
+        "url": "https://www.threads.com/@chandu__tx/"
+      },
+      {
+        "label": "Email",
+        "url": "mailto:su-24036@sitare.org"
+      }
+    ]
   },
   "experience": [
+    {
+      "company": "AMIPI INC.",
+      "role": "AI Engineering Intern",
+      "period": "Sept 2026 — Present",
+      "bullets": [
+        "Designed and implemented an AI-powered website auditing workflow for amipi.com that analyzes page performance, metadata, HTML structure, SEO and link integrity, surfacing missing metadata, structural HTML problems and broken or weak links.",
+        "Built an LLM-driven recommendation layer that turns raw diagnostic findings into prioritized, actionable optimization suggestions, automating website health monitoring so no one has to inspect every page and metric by hand."
+      ]
+    },
+    {
+      "company": "MELBOURNE MAMA CREATIVE SPACE",
+      "role": "AI Engineer Intern",
+      "period": "July 2026 — Sept 2026",
+      "bullets": [
+        "Built AI-native products and autonomous multi-agent systems for business intelligence, strategy automation and content generation using LLMs, FastAPI, React and modern AI infrastructure.",
+        "Designed and developed an AI Strategy Intelligence Platform integrating trend discovery, knowledge management, agent orchestration and analytics to help businesses automate research, planning and decision-making.",
+        "Architected scalable backend services, AI workflows and production-ready APIs, working closely with leadership to turn business requirements into intelligent software products."
+      ]
+    },
+    {
+      "company": "OZYMORLAB",
+      "role": "Founder — Educational AI Infrastructure",
+      "period": "2025 — Present",
+      "bullets": [
+        "Founded an open-source educational AI infrastructure platform that automates the full examination lifecycle: exam management, rubric design, answer-sheet evaluation, grading workflows and academic analytics for institutions.",
+        "Architected a production-ready assessment engine using OCR, LLMs, explainable AI and distributed backend services to turn handwritten answer sheets into structured, auditable evaluations with transparent grading rationales and performance insights."
+      ]
+    },
     {
       "company": "SENDLUME",
       "role": "Full-Stack & AI Engineer",
@@ -22,22 +68,23 @@
         "Engineered an AI workflow canvas with a node-based visual interface backed by a stateless REST API, enabling non-technical users to design and deploy automation pipelines.",
         "Built a real-time analytics dashboard using WebSocket streams and Redis-cached PostgreSQL aggregations, delivering live campaign KPIs with sub-100ms latency.",
         "Maintained scalable DevOps infrastructure using Neon, Redis, Docker, improving system uptime and deployment efficiency."
-      ],
-      "tags": ["AI", "LLM APIs", "FastAPI", "React", "PostgreSQL", "Redis", "Docker"]
-    },
-    {
-      "company": "JPMORGAN CHASE & CO.",
-      "role": "Quantitative Research Project",
-      "period": "2026",
-      "bullets": [
-        "Modeled natural gas prices using time-series techniques – seasonality decomposition and multi-horizon forecasting – achieving reliable short- and long-term price projections.",
-        "Built a P&L estimation engine for commodity storage contracts, factoring in injection, withdrawal, and holding costs to support trading decisions.",
-        "Developed an ML-based Probability of Default (PD) model using logistic regression, improving loan default prediction accuracy by ~15% over baseline heuristics.",
-        "Segmented credit scores into dynamic risk tiers using statistical bucketing, directly informing credit approval decision thresholds."
-      ],
-      "tags": ["Machine Learning", "Time-Series", "Logistic Regression", "Pandas"]
+      ]
     }
   ],
+  "featured": {
+    "badge": "Featured",
+    "eyebrow": "AI HIRING PLATFORM",
+    "name": "Mindfries",
+    "tagline": "Real skills. Real evidence. Better hiring.",
+    "desc": "An AI hiring platform that evaluates engineering ability through real coding tasks, system design and AI-led interviews, so teams hire on evidence instead of résumés.",
+    "highlights": [
+      "Real coding tasks",
+      "System design rounds",
+      "AI-led interviews"
+    ],
+    "url": "https://mindfries.com",
+    "urlLabel": "mindfries.com"
+  },
   "projects": [
     {
       "eyebrow": "HACKATHON",
@@ -45,53 +92,76 @@
       "desc": "A production platform for academic document fraud detection using an ensemble ML pipeline.",
       "stat": "94%",
       "statLabel": "Accuracy",
-      "tech": ["FastAPI", "TensorFlow", "Express.js", "MongoDB", "OpenCV"],
-      "github": "https://github.com/RishiGoswami-code"
+      "tech": [
+        "FastAPI",
+        "TensorFlow",
+        "Express.js",
+        "MongoDB",
+        "OpenCV"
+      ],
+      "github": "https://github.com/RishiGoswami-code/VikingMachineLearningModel"
     },
     {
-      "eyebrow": "WEB APP",
-      "name": "HighPulse.ai",
-      "desc": "A multi-platform social media intelligence analyzer utilizing Gemini AI for trend analysis exposed via Flask REST API.",
-      "stat": "5+",
-      "statLabel": "Platforms",
-      "tech": ["Python", "Flask", "Gemini AI", "Redis", "Chart.js"],
-      "github": "https://github.com/RishiGoswami-code"
-    },
-    {
-      "eyebrow": "SYSTEM",
-      "name": "PresenceSync",
-      "desc": "A fraud-resistant attendance system using GPS geofencing, dynamic QR codes, facial recognition, and IP fingerprinting.",
-      "stat": "500+",
-      "statLabel": "Concurrent Check-ins",
-      "tech": ["FastAPI", "Firestore", "Kubernetes", "Azure", "Docker"],
-      "github": "https://github.com/RishiGoswami-code"
+      "eyebrow": "ROBOTICS",
+      "name": "DRISHTI-UGV",
+      "desc": "A ROS 2 hybrid navigation stack for a GPS-denied outdoor ground vehicle, fusing stereo-vision SLAM, GPU-accelerated terrain mapping and Nav2 path planning behind a deterministic C++ safety supervisor.",
+      "stat": "~5,000",
+      "statLabel": "Safety Unit-Test Assertions",
+      "tech": [
+        "ROS 2",
+        "C++",
+        "Python",
+        "Nav2",
+        "RTAB-Map",
+        "CUDA",
+        "Gazebo",
+        "Docker"
+      ],
+      "github": "https://github.com/RishiGoswami-code/drishti-ugv"
     },
     {
       "eyebrow": "OPEN SOURCE",
-      "name": "sktime Contribution",
-      "desc": "Implemented an async data loading feature enabling non-blocking, progressive data fetching from URLs, files, and pandas.",
-      "stat": "7k+",
-      "statLabel": "GitHub Stars",
-      "tech": ["Python", "AsyncIO", "Pandas", "Scikit-learn"],
-      "github": "https://github.com/sktime/sktime"
-    }
-  ],
-  "skills": [
-    {
-      "group": "Frontend",
-      "items": ["React", "React Native", "TailwindCSS", "HTML", "CSS", "Chart.js", "JavaScript", "TypeScript"]
+      "name": "OzymorLab",
+      "desc": "Open-source educational AI infrastructure that turns handwritten answer sheets into structured, auditable evaluations using OCR, LLMs and explainable grading.",
+      "stat": "End-to-end",
+      "statLabel": "Exam Lifecycle Automated",
+      "tech": [
+        "OCR",
+        "LLMs",
+        "Explainable AI",
+        "FastAPI",
+        "React"
+      ],
+      "github": "https://ozymorlab.vercel.app"
     },
     {
-      "group": "Backend",
-      "items": ["Python", "Java", "C++", "FastAPI", "Flask", "Django", "Express.js", "REST APIs", "WebSockets"]
+      "eyebrow": "QUANT RESEARCH",
+      "name": "Quantitative Finance Models",
+      "desc": "JPMorgan Chase quantitative research case study: natural gas price forecasting, commodity storage contract valuation, and a logistic-regression Probability of Default model with dynamic FICO score bucketing.",
+      "stat": "~15%",
+      "statLabel": "Better Default Prediction",
+      "tech": [
+        "Python",
+        "Time-Series",
+        "Logistic Regression",
+        "Pandas",
+        "Scikit-learn"
+      ],
+      "github": "https://github.com/RishiGoswami-code/QuantAnalysis"
     },
     {
-      "group": "ML & AI",
-      "items": ["Scikit-learn", "TensorFlow", "PyTorch", "Pandas", "NLP", "LangChain", "Vector Databases", "LLM APIs"]
-    },
-    {
-      "group": "Cloud & DB",
-      "items": ["PostgreSQL", "MongoDB", "Redis", "Docker", "Kubernetes", "AWS", "Azure", "GCP", "CI/CD"]
+      "eyebrow": "OPEN SOURCE",
+      "name": "CodeGraphContext Docs",
+      "desc": "Designed and built the documentation for CodeGraphContext, an MCP server and CLI that indexes local code into a graph database to give AI assistants context. Merged upstream.",
+      "stat": "4k+",
+      "statLabel": "GitHub Stars on the Project",
+      "tech": [
+        "Documentation",
+        "MCP",
+        "UI/UX",
+        "Open Source"
+      ],
+      "github": "https://github.com/CodeGraphContext/CodeGraphContext/pull/875"
     }
   ],
   "achievements": [
@@ -102,12 +172,17 @@
     },
     {
       "title": "Sitare Foundation Merit Scholarship",
-      "desc": "Awarded a highly competitive merit-based scholarship covering 90% of B.Tech tuition.",
+      "desc": "Awarded a highly competitive merit-based scholarship covering 100% of B.Tech tuition.",
       "year": "2024"
     },
     {
+      "title": "Top Neurons Foundation Scholarship",
+      "desc": "Merit-based scholarship covering 100% of IIT JEE preparation tuition.",
+      "year": "2021 — 2023"
+    },
+    {
       "title": "Open Source Contributor",
-      "desc": "Contributed to sktime, AOSSIE, and Stability Nexus. Implemented async data loading, oracle features, and UI/UX redesigns.",
+      "desc": "Contributed to sktime, CodeGraphContext, AOSSIE and Stability Nexus. Built CodeGraphContext's documentation, implemented async data loading in sktime, and shipped oracle features and UI/UX redesigns.",
       "year": "2024"
     }
   ]
