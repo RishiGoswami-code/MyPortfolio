@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  /* Midnight palette: deep blue-black surfaces, warm amber accent, violet glow.
+  /* Midnight-violet palette: near-black indigo surfaces, warm amber accent, electric violet glow.
      Token names are kept from the original light theme so components don't change. */
-  --cream: #0D0F14;        /* page background */
-  --cream-dark: #151922;   /* cards */
-  --ink: #EEEAE2;          /* primary text */
-  --ink-light: #B3AEA6;    /* body text */
-  --ink-ghost: #7E7A73;    /* muted text */
+  --cream: #0B0A12;        /* page background */
+  --cream-dark: #14121D;   /* cards */
+  --ink: #F1EEF7;          /* primary text */
+  --ink-light: #B9B4C6;    /* body text */
+  --ink-ghost: #7F7A8C;    /* muted text */
   --gold: #F2B45A;         /* accent */
   --gold-light: #F7CD8C;   /* accent, lighter */
-  --violet: #A78BFA;       /* secondary accent */
-  --line: rgba(238, 234, 226, 0.09);
+  --pink: #F08FB4;         /* gradient mid stop */
+  --violet: #A77BFF;       /* secondary accent */
+  --line: rgba(241, 238, 247, 0.09);
 
   --accent-rgb: 242, 180, 90;
-  --violet-rgb: 167, 139, 250;
+  --violet-rgb: 167, 123, 255;
 
   --font-display: 'Cormorant Garamond', serif;
   --font-body: 'DM Sans', sans-serif;
@@ -25,9 +26,10 @@
 body {
   background-color: var(--cream);
   background-image:
-    radial-gradient(900px 520px at 85% -10%, rgba(var(--violet-rgb), 0.14), transparent 60%),
-    radial-gradient(700px 480px at -10% 10%, rgba(var(--accent-rgb), 0.08), transparent 60%);
+    radial-gradient(900px 560px at 80% -5%, rgba(var(--violet-rgb), 0.16), transparent 60%),
+    radial-gradient(700px 480px at -10% 10%, rgba(var(--accent-rgb), 0.06), transparent 60%);
   background-repeat: no-repeat;
+  overflow-x: clip; /* hero glow may bleed sideways; never let it widen the page */
   color: var(--ink);
   font-family: var(--font-body);
   font-weight: 300;
@@ -181,11 +183,194 @@ html {
   }
 }
 
-/* Amber-to-violet gradient text for the accent word in the hero */
+/* Amber → pink → violet gradient text for the accent word in the hero */
 .text-gradient {
-  background: linear-gradient(100deg, var(--gold) 10%, var(--gold-light) 45%, var(--violet) 95%);
+  background: linear-gradient(100deg, var(--gold) 5%, var(--pink) 50%, var(--violet) 95%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   padding-right: 0.08em; /* keeps the italic overhang from being clipped */
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink);
+  transition: border-color 200ms ease, background 200ms ease, color 200ms ease;
+}
+.social-pill:hover {
+  color: var(--violet);
+  border-color: rgba(var(--violet-rgb), 0.5);
+  background: rgba(var(--violet-rgb), 0.08);
+}
+
+/* ---------- Hero visual: stacked glass cards ---------- */
+.hero-glow {
+  position: absolute;
+  inset: 8% 6%;
+  background:
+    radial-gradient(closest-side at 60% 14%, rgba(var(--violet-rgb), 0.75), transparent 72%),
+    radial-gradient(closest-side at 62% 94%, rgba(var(--violet-rgb), 0.65), transparent 72%),
+    radial-gradient(closest-side at 50% 50%, rgba(var(--violet-rgb), 0.18), transparent 80%);
+  filter: blur(32px);
+  pointer-events: none;
+}
+
+.glass-card {
+  position: absolute;
+  border-radius: 9% / 13%;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    0 30px 60px -30px rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.glass-back-1 {
+  inset: 2% 18% 16% 8%;
+  transform: rotate(12deg);
+  opacity: 0.8;
+  border-color: rgba(var(--violet-rgb), 0.22);
+  animation: floatA 9s ease-in-out infinite;
+}
+
+.glass-back-2 {
+  inset: 26% 0% 4% 2%;
+  transform: rotate(-9deg);
+  opacity: 0.7;
+  border-color: rgba(var(--violet-rgb), 0.22);
+  animation: floatB 11s ease-in-out infinite;
+}
+
+.glass-front {
+  inset: 14% 3% 16% 7%;
+  transform: rotate(-4deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  padding: 0 6%;
+  background: linear-gradient(150deg, rgba(var(--violet-rgb), 0.16), rgba(20, 16, 34, 0.75) 55%);
+  border-color: rgba(var(--violet-rgb), 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(var(--violet-rgb), 0.6),
+    0 0 0 1px rgba(var(--violet-rgb), 0.08),
+    0 24px 70px -20px rgba(var(--violet-rgb), 0.55);
+  animation: floatFront 8s ease-in-out infinite;
+  transition: box-shadow 300ms ease;
+}
+.glass-front:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(var(--violet-rgb), 0.8),
+    0 0 0 1px rgba(var(--violet-rgb), 0.2),
+    0 28px 90px -16px rgba(var(--violet-rgb), 0.75);
+}
+/* Bright rim lights along the top and bottom edges */
+.glass-front::before,
+.glass-front::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 12%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgba(var(--violet-rgb), 0.95) 55%, transparent);
+  filter: drop-shadow(0 0 6px rgba(var(--violet-rgb), 0.9));
+}
+.glass-front::before { top: -1px; }
+.glass-front::after { bottom: -1px; left: 30%; right: 4%; }
+
+.hero-brand-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(30px, 6.4vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+@media (min-width: 1024px) {
+  .hero-brand-name { font-size: clamp(36px, 3.9vw, 60px); }
+}
+
+@keyframes floatFront {
+  0%, 100% { transform: rotate(-4deg) translateY(0); }
+  50% { transform: rotate(-4deg) translateY(-8px); }
+}
+@keyframes floatA {
+  0%, 100% { transform: rotate(12deg) translateY(0); }
+  50% { transform: rotate(13deg) translateY(6px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: rotate(-9deg) translateY(0); }
+  50% { transform: rotate(-10deg) translateY(-5px); }
+}
+
+/* ---------- Brain: wires connect to form the logo ---------- */
+.brain { overflow: visible; }
+
+.brain-outline,
+.brain-wire {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.brain-outline {
+  animation: brainDraw 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;
+}
+.brain-wire {
+  animation: brainDraw 0.7s cubic-bezier(0.5, 0, 0.3, 1) forwards;
+}
+.brain-node {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: brainNode 0.45s cubic-bezier(0.3, 1.6, 0.5, 1) forwards;
+}
+/* Everything waits until the brain scrolls into view (BrainCircuit adds .is-live). */
+.brain:not(.is-live) .brain-outline,
+.brain:not(.is-live) .brain-wire,
+.brain:not(.is-live) .brain-node,
+.brain:not(.is-live) .brain-pulse {
+  animation-play-state: paused;
+}
+.brain-pulse {
+  stroke-dasharray: 0.12 0.88;
+  stroke-dashoffset: 1.12;
+  opacity: 0;
+  filter: drop-shadow(0 0 4px rgba(233, 222, 255, 0.9));
+  animation: brainPulse 3.6s ease-in-out infinite;
+}
+
+@keyframes brainDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes brainNode {
+  0% { opacity: 0; transform: scale(0); }
+  60% { opacity: 1; transform: scale(1.4); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes brainPulse {
+  0% { stroke-dashoffset: 1.12; opacity: 0; }
+  8% { opacity: 1; }
+  45% { stroke-dashoffset: 0; opacity: 1; }
+  55%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-card { animation: none; }
+  .brain-outline,
+  .brain-wire { animation: none; stroke-dashoffset: 0; }
+  .brain-node { animation: none; opacity: 1; }
+  .brain-pulse { display: none; }
 }
