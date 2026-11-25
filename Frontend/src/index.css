@@ -77,7 +77,7 @@ html {
 .btn-cream:hover {
   background-color: var(--cream-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(250, 236, 213, 0.2);
+  box-shadow: 0 4px 14px rgba(250, 236, 213, 0.25);
 }
 
 .btn-outline {
