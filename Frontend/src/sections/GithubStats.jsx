@@ -63,39 +63,34 @@ export default function GithubStats() {
 
   return (
     <section id="telemetry" className="py-20 sm:py-24 border-b border-[var(--line)]">
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[var(--line)] mb-12">
-        <span className="font-mono-meta text-[var(--accent)]">
-          [ 05 // CODE TELEMETRY &amp; ACTIVITY ]
-        </span>
-        <span className="font-mono-meta">
-          GITHUB: @{USERNAME}
-        </span>
-      </div>
+      <h2 className="font-editorial text-4xl sm:text-6xl font-light text-[var(--fg)] leading-none mb-10">
+        Open source &amp; telemetry.
+      </h2>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line)] border border-[var(--line)] rounded-xl overflow-hidden mb-8">
         <div className="p-6 bg-[var(--bg)] flex flex-col gap-1">
-          <div className="font-mono-meta text-[11px]">Repositories</div>
+          <div className="font-mono text-xs text-[var(--fg-muted)]">Repositories</div>
           <div className="font-mono text-3xl font-light text-[var(--fg)]">
             {stats ? fmt(stats.repos) : '20+'}
           </div>
         </div>
 
         <div className="p-6 bg-[var(--bg)] flex flex-col gap-1">
-          <div className="font-mono-meta text-[11px]">Stars Earned</div>
+          <div className="font-mono text-xs text-[var(--fg-muted)]">Stars Earned</div>
           <div className="font-mono text-3xl font-light text-[var(--fg)]">
             {stats ? fmt(stats.stars) : '—'}
           </div>
         </div>
 
         <div className="p-6 bg-[var(--bg)] flex flex-col gap-1">
-          <div className="font-mono-meta text-[11px]">Followers</div>
+          <div className="font-mono text-xs text-[var(--fg-muted)]">Followers</div>
           <div className="font-mono text-3xl font-light text-[var(--fg)]">
             {stats ? fmt(stats.followers) : '—'}
           </div>
         </div>
 
         <div className="p-6 bg-[var(--bg)] flex flex-col gap-1">
-          <div className="font-mono-meta text-[11px]">Contributions (Past Year)</div>
+          <div className="font-mono text-xs text-[var(--fg-muted)]">Contributions (Past Year)</div>
           <div className="font-mono text-3xl font-light text-[var(--accent)]">
             {stats ? fmt(stats.contributions) : 'Active'}
           </div>
@@ -105,7 +100,7 @@ export default function GithubStats() {
       {days && days.length > 0 && (
         <div className="p-6 sm:p-8 rounded-xl bg-[var(--bg-subtle)] border border-[var(--line)]">
           <div className="flex flex-wrap items-baseline justify-between gap-3 mb-6">
-            <span className="font-mono-meta text-[var(--fg)]">
+            <span className="font-mono text-xs text-[var(--fg-muted)]">
               Contribution Matrix &middot; Past 26 Weeks
             </span>
             <div className="flex gap-1 items-center font-mono text-[11px] text-[var(--fg-muted)]">
@@ -135,7 +130,7 @@ export default function GithubStats() {
               href={`https://github.com/${USERNAME}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="editorial-link font-mono-meta text-[var(--fg)]"
+              className="editorial-link font-mono text-xs text-[var(--fg)]"
             >
               Inspect profile on GitHub <ArrowUpRight size={13} />
             </a>

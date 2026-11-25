@@ -17,13 +17,13 @@ export default function Hero() {
         }}
       />
 
-      {/* Left-edge gradient mask so text is 100% readable even on smaller screens */}
+      {/* Left-edge gradient mask so text sits cleanly on the negative space */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#050507] via-[#050507]/95 to-transparent md:w-[65%] lg:w-[55%]"
       />
 
-      {/* Foreground Content matching Image 1 */}
+      {/* Foreground Content - Pure, confident headline without tags */}
       <div className="relative z-10 max-w-xl py-20 sm:py-28">
         <h1 className="font-editorial text-[50px] sm:text-[76px] xl:text-[88px] font-light leading-[1.03] tracking-tight text-[#f4f4f5] mb-6">
           Building <br />

@@ -50,17 +50,8 @@ const App = () => {
         <Achievements />
         <GithubStats />
 
-        {/* Closing Direct Inquiries Section */}
+        {/* Closing Inquiries Section */}
         <section className="py-24">
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[var(--line)] mb-12">
-            <span className="font-mono-meta text-[var(--accent)]">
-              [ 06 // DIRECT CONTACT &amp; INQUIRIES ]
-            </span>
-            <span className="font-mono-meta">
-              OPEN FOR HIGH-IMPACT RESEARCH &amp; SYSTEMS
-            </span>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-end mb-16">
             <div>
               <h2 className="font-editorial text-4xl sm:text-6xl xl:text-7xl font-light text-[var(--fg)] leading-none mb-6">
@@ -79,7 +70,7 @@ const App = () => {
               >
                 su-24036@sitare.org ↗
               </a>
-              <div className="flex flex-wrap gap-4 font-mono-meta text-[11px] pt-2">
+              <div className="flex flex-wrap gap-4 text-xs font-mono text-[var(--fg-muted)] pt-2">
                 <a href="https://github.com/RishiGoswami-code" target="_blank" rel="noopener noreferrer" className="editorial-link">GitHub</a>
                 <a href="https://www.linkedin.com/in/chandan-giri-307927247/" target="_blank" rel="noopener noreferrer" className="editorial-link">LinkedIn</a>
                 <a href="https://x.com/RishiGoswamii" target="_blank" rel="noopener noreferrer" className="editorial-link">X / Twitter</a>

@@ -6,14 +6,9 @@ export default function Achievements() {
 
   return (
     <section id="recognition" className="py-20 sm:py-24 border-b border-[var(--line)]">
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[var(--line)] mb-12">
-        <span className="font-mono-meta text-[var(--accent)]">
-          [ 04 // RECOGNITION &amp; SCHOLARSHIPS ]
-        </span>
-        <span className="font-mono-meta">
-          COMPETITIVE HONOURS &middot; MERIT GRANTS
-        </span>
-      </div>
+      <h2 className="font-editorial text-4xl sm:text-6xl font-light text-[var(--fg)] leading-none mb-10">
+        Recognition &amp; scholarships.
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--line)] border border-[var(--line)] rounded-xl overflow-hidden">
         {achievements.map((item, idx) => (
@@ -26,7 +21,7 @@ export default function Achievements() {
                 <span className="font-mono text-xs text-[var(--accent)]">
                   0{idx + 1}
                 </span>
-                <span className="font-mono-meta">
+                <span className="font-mono text-xs text-[var(--fg-muted)]">
                   [{item.year}]
                 </span>
               </div>

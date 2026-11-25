@@ -48,13 +48,9 @@ export default function Experience() {
   return (
     <section id="trajectory" className="py-20 sm:py-24 border-b border-[var(--line)]">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-14 items-start">
-        {/* Left Side: Headline matching Image 4 */}
+        {/* Left Side: Headline without tags */}
         <div className="flex flex-col justify-between h-full">
           <div>
-            <span className="font-mono-meta text-[var(--accent)] mb-4 block">
-              TRAJECTORY &amp; INDUSTRY WORK
-            </span>
-
             <h2 className="font-editorial text-5xl sm:text-7xl font-light leading-[1.02] tracking-tight text-[#f4f4f5] mb-4">
               Industry <br />
               experience <br />
@@ -67,7 +63,7 @@ export default function Experience() {
             </p>
           </div>
 
-          {/* Bottom Left Terrain Graphic with Warm Rim Glow matching Image 4 */}
+          {/* Bottom Left Terrain Graphic with Warm Rim Glow */}
           <div className="w-full max-w-[320px] rounded-lg overflow-hidden border border-white/5 opacity-80 hidden lg:block">
             <img
               src="/trajectory-terrain.jpg"
@@ -77,12 +73,11 @@ export default function Experience() {
           </div>
         </div>
 
-        {/* Right Side: 4 Stacked Sleek Cards with Warm Rim Top Border matching Image 4 */}
+        {/* Right Side: 4 Stacked Sleek Cards with Warm Rim Top Border */}
         <div className="flex flex-col gap-4">
           {experiences.map((exp) => (
             <div key={exp.id} className="trajectory-card p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                {/* Custom Icon Box matching Image 4 */}
                 <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-white/10 flex items-center justify-center shrink-0">
                   {exp.iconType === 'circle' ? (
                     <span className="w-6 h-6 rounded-full border-2 border-purple-400 inline-block" />
@@ -111,7 +106,6 @@ export default function Experience() {
                 </div>
               </div>
 
-              {/* Right Side Badges & Date */}
               <div className="flex flex-col sm:items-end justify-between gap-2.5 sm:border-l sm:border-white/5 sm:pl-6">
                 <span className="font-mono text-[11.5px] text-[var(--fg-muted)] whitespace-nowrap">
                   {exp.period}
