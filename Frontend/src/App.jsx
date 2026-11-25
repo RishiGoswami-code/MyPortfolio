@@ -1,75 +1,101 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Hero from './sections/Hero';
-import Experience from './sections/Experience';
 import Projects from './sections/Projects';
+import Experience from './sections/Experience';
 import Achievements from './sections/Achievements';
 import GithubStats from './sections/GithubStats';
 import TabNav from './components/TabNav';
-
-const sections = {
-  'Projects (Bento)': Projects,
-  Experience,
-  Achievements,
-  'GitHub Activity': GithubStats,
-};
+import { ArrowUpRight } from 'lucide-react';
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState('Projects (Bento)');
-  const ActiveSection = sections[activeTab];
-
   return (
-    <div className="min-h-screen relative flex flex-col justify-between w-full bg-dot-pattern">
-      {/* Top Ambient Glow (Magic UI / Motion.dev Style) */}
-      <div
-        aria-hidden="true"
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-indigo-500/15 via-sky-500/5 to-transparent blur-3xl pointer-events-none"
-      />
-
-      {/* Top Sticky Minimal Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-zinc-950/70 backdrop-blur-xl">
-        <div className="max-w-[1140px] mx-auto px-5 sm:px-8 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-indigo-400" />
-            <span className="font-semibold text-sm tracking-tight text-white">Chandan Giri</span>
-            <span className="hidden sm:inline font-mono text-[11px] text-zinc-500 px-2 py-0.5 rounded-full bg-white/5 border border-white/10">
-              AI Engineer &amp; Founder
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+      {/* Sticky Top Minimalist Masthead */}
+      <header className="sticky top-0 z-50 w-full border-b border-[var(--line)] bg-[#070709]/85 backdrop-blur-md">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-12 h-14 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="w-2 h-2 rounded-full bg-[var(--accent)]" />
+            <a href="#" className="font-semibold text-sm tracking-tight text-[var(--fg)] hover:text-[var(--accent)] transition-colors">
+              Chandan Giri
+            </a>
+            <span className="hidden sm:inline font-mono text-[11px] text-[var(--fg-muted)]">
+              / AI Systems Engineer &amp; Founder
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <TabNav />
+
+          <div className="flex items-center gap-4">
             <a
               href="https://mindfries.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-mono text-indigo-400 hover:text-indigo-300 transition-colors"
+              className="font-mono-meta text-[11px] text-[var(--accent)] hover:underline hidden sm:inline"
             >
-              mindfries.com &rarr;
+              mindfries.com ↗
             </a>
             <a
-              href="https://github.com/RishiGoswami-code"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white hover:bg-white/15 border border-white/10 transition-colors"
+              href="mailto:su-24036@sitare.org"
+              className="font-mono text-xs px-3.5 py-1.5 rounded bg-[var(--fg)] text-[var(--bg)] font-medium hover:bg-[var(--accent)] transition-colors"
             >
-              GitHub
+              Inquire
             </a>
           </div>
         </div>
       </header>
 
-      <main className="relative z-10 w-full max-w-[1140px] mx-auto px-5 sm:px-8 lg:px-10 flex flex-col">
+      {/* Main Curated Editorial Flow */}
+      <main className="max-w-[1200px] mx-auto px-6 sm:px-12 editorial-grid flex flex-col">
         <Hero />
-        <TabNav tabs={Object.keys(sections)} activeTab={activeTab} setActiveTab={setActiveTab} />
-        <div className="mt-2">
-          <ActiveSection key={activeTab} />
-        </div>
-      </main>
+        <Projects />
+        <Experience />
+        <Achievements />
+        <GithubStats />
 
-      <footer className="relative z-10 w-full border-t border-white/10 py-8 text-center bg-zinc-950/60 backdrop-blur-md">
-        <p className="font-mono text-[12px] text-zinc-500">
-          Chandan Giri (Rishi Goswami) &middot; Built with Motion.dev &amp; Magic UI Startup Design System
-        </p>
-      </footer>
+        {/* 06 // COLOPHON & DIRECT INQUIRIES */}
+        <section className="py-24">
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[var(--line)] mb-12">
+            <span className="font-mono-meta text-[var(--accent)]">
+              [ 06 // DIRECT CONTACT &amp; COLOPHON ]
+            </span>
+            <span className="font-mono-meta">
+              OPEN FOR ENGINEERING COLLABORATIONS
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-end mb-16">
+            <div>
+              <h2 className="font-editorial text-4xl sm:text-6xl xl:text-7xl font-light text-[var(--fg)] leading-none mb-6">
+                Let&rsquo;s build intelligent, <br />
+                <span className="italic font-normal text-[var(--accent)] font-editorial">fault-tolerant</span> systems.
+              </h2>
+              <p className="text-[16px] text-[var(--fg-muted)] font-light max-w-lg leading-relaxed">
+                Available for research advisorship, AI systems architecture, and high-impact engineering projects.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 md:items-end">
+              <a
+                href="mailto:su-24036@sitare.org"
+                className="font-editorial text-2xl sm:text-3xl text-[var(--fg)] hover:text-[var(--accent)] transition-colors"
+              >
+                su-24036@sitare.org ↗
+              </a>
+              <div className="flex flex-wrap gap-4 font-mono-meta text-[11px] pt-2">
+                <a href="https://github.com/RishiGoswami-code" target="_blank" rel="noopener noreferrer" className="editorial-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/chandan-giri-307927247/" target="_blank" rel="noopener noreferrer" className="editorial-link">LinkedIn</a>
+                <a href="https://x.com/RishiGoswamii" target="_blank" rel="noopener noreferrer" className="editorial-link">X / Twitter</a>
+                <a href="https://www.threads.com/@chandu__tx/" target="_blank" rel="noopener noreferrer" className="editorial-link">Threads</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-8 border-t border-[var(--line)] flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-[var(--fg-faint)]">
+            <span>&copy; {new Date().getFullYear()} Chandan Giri (Rishi Goswami)</span>
+            <span>Art directed with taste, restraint, and precision</span>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };

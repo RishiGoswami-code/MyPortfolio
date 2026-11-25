@@ -1,45 +1,25 @@
 import React from 'react';
-import { Briefcase, FolderGit2, Trophy, Activity } from 'lucide-react';
 
-const icons = {
-  'Projects (Bento)': FolderGit2,
-  Experience: Briefcase,
-  Achievements: Trophy,
-  'GitHub Activity': Activity,
-};
+const navItems = [
+  { id: 'mindfries', label: '01 Mindfries' },
+  { id: 'systems', label: '02 Systems' },
+  { id: 'trajectory', label: '03 Trajectory' },
+  { id: 'recognition', label: '04 Recognition' },
+  { id: 'telemetry', label: '05 Telemetry' },
+];
 
-export default function TabNav({ tabs, activeTab, setActiveTab }) {
+export default function TabNav() {
   return (
-    <div className="flex justify-center w-full my-8">
-      <nav className="inline-flex items-center gap-1.5 p-1.5 rounded-full bg-zinc-900/80 border border-white/10 backdrop-blur-xl shadow-2xl overflow-x-auto [scrollbar-width:none]">
-        {tabs.map((tab) => {
-          const isActive = activeTab === tab;
-          const Icon = icons[tab] || FolderGit2;
-          return (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              aria-current={isActive ? 'page' : undefined}
-              className={`
-                shrink-0 inline-flex items-center gap-2 px-4 py-2 text-[13px] font-medium rounded-full transition-all duration-200
-                ${
-                  isActive
-                    ? 'bg-white text-zinc-950 font-semibold shadow-lg shadow-white/10'
-                    : 'text-zinc-400 hover:text-white hover:bg-white/5'
-                }
-              `}
-            >
-              <Icon
-                size={15}
-                strokeWidth={isActive ? 2 : 1.75}
-                className={isActive ? 'text-zinc-950' : 'text-current'}
-                aria-hidden="true"
-              />
-              <span>{tab}</span>
-            </button>
-          );
-        })}
-      </nav>
-    </div>
+    <nav className="hidden lg:flex items-center gap-8 font-mono-meta text-[11px]">
+      {navItems.map((item) => (
+        <a
+          key={item.id}
+          href={`#${item.id}`}
+          className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
   );
 }
