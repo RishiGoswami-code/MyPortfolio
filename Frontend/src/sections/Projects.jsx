@@ -8,10 +8,10 @@ export default function Projects() {
   return (
     <div>
       {/* ======================================================== */}
-      {/* 01 // MINDFRIES SECTION (CLEAN BGI, NO TAGS)             */}
+      {/* 01 // MINDFRIES SECTION (FULL-WIDTH BGI, NO TAGS)        */}
       {/* ======================================================== */}
-      <section id="mindfries" className="relative w-full min-h-[580px] sm:min-h-[640px] py-20 sm:py-24 border-b border-[var(--line)] overflow-hidden flex items-center">
-        {/* Mindfries Laptop 3D Render as BGI on the right */}
+      <section id="mindfries" className="relative w-full min-h-[620px] sm:min-h-[720px] py-20 sm:py-28 border-b border-[var(--line)] overflow-hidden flex items-center">
+        {/* Mindfries Laptop 3D Render as BGI flush to the right edge */}
         <div
           aria-hidden="true"
           className="absolute inset-0 pointer-events-none bg-no-repeat bg-right bg-cover lg:bg-contain opacity-85 lg:opacity-100 hidden sm:block"
@@ -27,8 +27,8 @@ export default function Projects() {
           className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#050507] via-[#050507]/95 to-transparent sm:w-[65%] lg:w-[55%]"
         />
 
-        {/* Foreground Content without bracket tags */}
-        <div className="relative z-10 max-w-lg">
+        {/* Foreground Content - Full width gutter padding */}
+        <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 xl:px-24 max-w-2xl">
           <h2 className="font-editorial text-5xl sm:text-6xl text-[var(--fg)] font-light leading-none mb-3">
             Mindfries
           </h2>
@@ -79,10 +79,10 @@ export default function Projects() {
       </section>
 
       {/* ======================================================== */}
-      {/* 02 // SYSTEMS I'VE BUILT (MATCHING IMAGE EXACTLY)         */}
+      {/* 02 // SYSTEMS I'VE BUILT (FULL-WIDTH, NO TAGS)           */}
       {/* ======================================================== */}
-      <section id="systems" className="py-24 sm:py-32 border-b border-[var(--line)]">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.85fr] gap-12 lg:gap-14 items-center">
+      <section id="systems" className="w-full px-6 sm:px-12 lg:px-20 xl:px-24 py-24 sm:py-32 border-b border-[var(--line)]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.85fr] gap-12 lg:gap-16 items-center">
           {/* Left Side: Headline & Subhead without tags */}
           <div className="flex flex-col">
             <h2 className="font-editorial text-5xl sm:text-7xl font-light leading-[1.02] tracking-tight text-[#f4f4f5] mb-4">

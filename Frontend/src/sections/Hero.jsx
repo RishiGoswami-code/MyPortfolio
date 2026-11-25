@@ -6,8 +6,8 @@ export default function Hero() {
   const { featured } = usePortfolioData();
 
   return (
-    <section className="relative w-full min-h-[580px] sm:min-h-[640px] flex items-center border-b border-[var(--line)] overflow-hidden">
-      {/* DRISHTI-UGV Rover as Background Image (BGI) on the right */}
+    <section className="relative w-full min-h-[620px] sm:min-h-[720px] flex items-center border-b border-[var(--line)] overflow-hidden">
+      {/* DRISHTI-UGV Rover as Background Image (BGI) flush to the right edge */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none bg-no-repeat bg-right bg-cover lg:bg-contain opacity-85 lg:opacity-100"
@@ -23,9 +23,9 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#050507] via-[#050507]/95 to-transparent md:w-[65%] lg:w-[55%]"
       />
 
-      {/* Foreground Content - Pure, confident headline without tags */}
-      <div className="relative z-10 max-w-xl py-20 sm:py-28">
-        <h1 className="font-editorial text-[50px] sm:text-[76px] xl:text-[88px] font-light leading-[1.03] tracking-tight text-[#f4f4f5] mb-6">
+      {/* Foreground Content - Full-width padding with no constraining outer margin */}
+      <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 xl:px-24 py-20 sm:py-28 max-w-3xl">
+        <h1 className="font-editorial text-[52px] sm:text-[78px] xl:text-[92px] font-light leading-[1.02] tracking-tight text-[#f4f4f5] mb-6">
           Building <br />
           <span className="italic font-normal text-[var(--accent)] font-editorial">
             intelligent systems
@@ -34,7 +34,7 @@ export default function Hero() {
           for the real world.
         </h1>
 
-        <p className="text-[16px] sm:text-[18px] text-[var(--fg-muted)] leading-[1.7] mb-8 font-light max-w-md">
+        <p className="text-[16px] sm:text-[18px] text-[var(--fg-muted)] leading-[1.7] mb-8 font-light max-w-lg">
           Founder of Mindfries. Designing AI systems and autonomous robotics, from research to deployment.
         </p>
 

@@ -46,8 +46,8 @@ export default function Experience() {
   ];
 
   return (
-    <section id="trajectory" className="py-20 sm:py-24 border-b border-[var(--line)]">
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-14 items-start">
+    <section id="trajectory" className="w-full px-6 sm:px-12 lg:px-20 xl:px-24 py-24 sm:py-32 border-b border-[var(--line)]">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 items-start">
         {/* Left Side: Headline without tags */}
         <div className="flex flex-col justify-between h-full">
           <div>

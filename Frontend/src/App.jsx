@@ -8,10 +8,10 @@ import { ArrowUpRight } from 'lucide-react';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-[var(--bg)] text-[var(--fg)] selection:bg-[var(--accent)] selection:text-black">
-      {/* Sticky Top Navbar matching Image 1 */}
+    <div className="w-full min-h-screen bg-[var(--bg)] text-[var(--fg)] selection:bg-[var(--accent)] selection:text-black">
+      {/* Sticky Top Navbar: Edge-to-Edge with natural gutter */}
       <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#050507]/90 backdrop-blur-md">
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-12 h-16 flex items-center justify-between">
+        <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-24 h-16 flex items-center justify-between">
           {/* Left: Chandan Giri + AI Systems Engineer & Founder */}
           <div className="flex items-center gap-3">
             <a href="#" className="font-editorial text-xl font-medium tracking-tight text-[#f4f4f5] hover:text-[var(--accent)] transition-colors">
@@ -42,16 +42,16 @@ const App = () => {
         </div>
       </header>
 
-      {/* Main Curated Content Flow */}
-      <main className="max-w-[1240px] mx-auto px-6 sm:px-12 flex flex-col">
+      {/* Main Content: Full-Width edge-to-edge! */}
+      <main className="w-full flex flex-col">
         <Hero />
         <Projects />
         <Experience />
         <Achievements />
         <GithubStats />
 
-        {/* Closing Inquiries Section */}
-        <section className="py-24">
+        {/* Closing Inquiries Section: Full-Width Gutter */}
+        <section className="w-full px-6 sm:px-12 lg:px-20 xl:px-24 py-24 sm:py-32">
           <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-end mb-16">
             <div>
               <h2 className="font-editorial text-4xl sm:text-6xl xl:text-7xl font-light text-[var(--fg)] leading-none mb-6">

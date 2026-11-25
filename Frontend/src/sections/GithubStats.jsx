@@ -62,7 +62,7 @@ export default function GithubStats() {
   const fmt = (v) => (typeof v === 'number' ? v.toLocaleString() : '—');
 
   return (
-    <section id="telemetry" className="py-20 sm:py-24 border-b border-[var(--line)]">
+    <section id="telemetry" className="w-full px-6 sm:px-12 lg:px-20 xl:px-24 py-24 sm:py-32 border-b border-[var(--line)]">
       <h2 className="font-editorial text-4xl sm:text-6xl font-light text-[var(--fg)] leading-none mb-10">
         Open source &amp; telemetry.
       </h2>

@@ -5,7 +5,7 @@ export default function Achievements() {
   const { achievements } = usePortfolioData();
 
   return (
-    <section id="recognition" className="py-20 sm:py-24 border-b border-[var(--line)]">
+    <section id="recognition" className="w-full px-6 sm:px-12 lg:px-20 xl:px-24 py-24 sm:py-32 border-b border-[var(--line)]">
       <h2 className="font-editorial text-4xl sm:text-6xl font-light text-[var(--fg)] leading-none mb-10">
         Recognition &amp; scholarships.
       </h2>
