@@ -16,36 +16,44 @@ export default function Hero() {
   const { meta, featured } = usePortfolioData();
 
   return (
-    <div className="w-full pt-14 sm:pt-20 pb-12 sm:pb-16 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-center gap-12 lg:gap-10">
+    <div className="w-full pt-12 sm:pt-16 pb-10 sm:pb-14 grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] items-center gap-10 lg:gap-12">
       <div className="flex flex-col gap-6 min-w-0">
         <div className="flex flex-col gap-3">
-          <h1 className="text-[60px] sm:text-[88px] xl:text-[96px] leading-[1.02] font-normal" style={{ fontFamily: 'var(--font-display)' }}>
-            <span className="text-[var(--ink)]">{meta.name[0]}</span>{' '}
-            <em className="text-gradient italic">{meta.name[1]}</em>
+          {/* Status signature */}
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[var(--positive)] inline-block" aria-hidden="true" />
+            <span className="font-mono text-[12px] text-[var(--text-muted)] tracking-tight">
+              Available for research & AI systems
+            </span>
+          </div>
+
+          <h1
+            className="text-[44px] sm:text-[60px] xl:text-[68px] leading-[1.05] font-normal text-[var(--text-primary)]"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
+            {meta.name[0]} {meta.name[1]}
           </h1>
 
-          <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[15px] sm:text-[16px]">
             {meta.role && (
               <>
-                <span className="text-[20px] sm:text-[24px] font-semibold text-[var(--violet)] tracking-[-0.01em]">
+                <span className="font-medium text-[var(--accent)]">
                   {meta.role}
                 </span>
-                <span aria-hidden="true" className="hidden sm:inline text-[var(--ink-ghost)]">·</span>
+                <span aria-hidden="true" className="text-[var(--text-muted)]">/</span>
               </>
             )}
-            <span className="text-[24px] sm:text-[28px] text-[var(--ink)] italic" style={{ fontFamily: 'var(--font-display)' }}>
+            <span className="text-[var(--text-secondary)] font-normal">
               {meta.title}
             </span>
-          </p>
-
-          <span aria-hidden="true" className="block w-12 h-[3px] rounded-full bg-[var(--violet)] mt-2" />
+          </div>
         </div>
 
-        <p className="text-[17px] sm:text-[18px] font-light text-[var(--ink)] max-w-[560px] leading-[1.8]">
+        <p className="text-[15px] sm:text-[16px] text-[var(--text-secondary)] max-w-[560px] leading-[1.7]">
           {meta.summary}
         </p>
 
-        <div className="flex flex-wrap items-center gap-2.5 mt-1">
+        <div className="flex flex-wrap items-center gap-2 pt-1">
           {meta.links.map((link) => {
             const Icon = linkIcons[link.label];
             const external = !link.url.startsWith('mailto:');
@@ -53,11 +61,10 @@ export default function Hero() {
               <a
                 key={link.label}
                 href={link.url}
-                title={link.label}
                 className="social-pill"
                 {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
-                {Icon && <Icon size={15} aria-hidden="true" />}
+                {Icon && <Icon size={14} aria-hidden="true" />}
                 <span>{link.label}</span>
               </a>
             );

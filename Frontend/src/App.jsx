@@ -10,7 +10,7 @@ const sections = {
   Experience,
   Projects,
   Achievements,
-  Github: GithubStats,
+  'GitHub activity': GithubStats,
 };
 
 const App = () => {
@@ -18,14 +18,20 @@ const App = () => {
   const ActiveSection = sections[activeTab];
 
   return (
-    <div className="min-h-screen flex justify-center w-full">
-      <div className="w-full max-w-[1200px] px-6 sm:px-12 flex flex-col">
+    <div className="min-h-screen flex flex-col justify-between w-full">
+      <main className="w-full max-w-[1100px] mx-auto px-5 sm:px-10 flex flex-col">
         <Hero />
         <TabNav tabs={Object.keys(sections)} activeTab={activeTab} setActiveTab={setActiveTab} />
-        <div className="mt-8">
+        <div className="mt-4">
           <ActiveSection key={activeTab} />
         </div>
-      </div>
+      </main>
+
+      <footer className="w-full border-t border-[var(--hairline)] py-6 text-center">
+        <p className="font-mono text-[12px] text-[var(--text-muted)]">
+          Chandan Giri (Rishi Goswami) · Built with React & Tailwind · Engineered with craft
+        </p>
+      </footer>
     </div>
   );
 };
