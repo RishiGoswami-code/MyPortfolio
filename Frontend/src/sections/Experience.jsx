@@ -13,41 +13,42 @@ export default function Experience() {
   const { experience } = usePortfolioData();
 
   return (
-    <ol className="animate-fade-up relative flex flex-col pt-6 pb-16">
-      {/* Timeline vertical hairline rail */}
-      <span aria-hidden="true" className="absolute left-[15px] top-6 bottom-12 w-px bg-[var(--hairline)]" />
+    <ol className="relative flex flex-col pt-4 pb-16">
+      {/* Timeline vertical rail */}
+      <span aria-hidden="true" className="absolute left-[19px] top-6 bottom-12 w-px bg-white/10" />
 
       {experience.map((item) => {
         const Icon = companyIcons[item.company] || Briefcase;
         return (
-          <li key={item.company + item.period} className="group relative pl-12 sm:pl-14 pb-10 last:pb-0">
+          <li key={item.company + item.period} className="group relative pl-14 sm:pl-16 pb-10 last:pb-0">
             {/* Timeline node */}
-            <span className="absolute left-0 top-0 flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--surface-raised)] border border-[var(--hairline)] text-[var(--text-secondary)] transition-colors duration-150 group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
-              <Icon size={15} strokeWidth={1.5} aria-hidden="true" />
+            <span className="absolute left-0 top-0 flex items-center justify-center w-10 h-10 rounded-xl bg-zinc-900 border border-white/10 text-zinc-300 transition-colors duration-200 group-hover:border-indigo-400/50 group-hover:text-indigo-400 shadow-md">
+              <Icon size={17} strokeWidth={1.75} aria-hidden="true" />
             </span>
 
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 mb-2">
-              <span className="font-mono text-[13px] font-medium text-[var(--text-primary)]">
-                {item.company}
-              </span>
-              <span aria-hidden="true" className="text-[var(--hairline-hover)]">/</span>
-              <span className="font-mono text-[12px] text-[var(--text-muted)]">
-                {item.period}
-              </span>
+            <div className="bento-card p-6">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span className="font-mono text-[13px] font-semibold text-white">
+                  {item.company}
+                </span>
+                <span className="font-mono text-[12px] px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-zinc-400">
+                  {item.period}
+                </span>
+              </div>
+
+              <h3 className="text-lg font-semibold text-indigo-300 mb-3">
+                {item.role}
+              </h3>
+
+              <ul className="flex flex-col gap-2.5">
+                {item.bullets.map((bullet) => (
+                  <li key={bullet} className="relative pl-4 text-[14px] text-zinc-300 leading-relaxed">
+                    <span className="absolute left-0 top-[9px] w-[5px] h-[5px] rounded-full bg-indigo-400" />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            <h3 className="text-[17px] leading-[1.3] text-[var(--text-primary)] font-medium mb-3">
-              {item.role}
-            </h3>
-
-            <ul className="flex flex-col gap-2.5 max-w-[760px]">
-              {item.bullets.map((bullet) => (
-                <li key={bullet} className="relative pl-4 text-[14px] text-[var(--text-secondary)] leading-[1.65]">
-                  <span className="absolute left-0 top-[10px] w-[5px] h-[1px] bg-[var(--accent)]" />
-                  {bullet}
-                </li>
-              ))}
-            </ul>
           </li>
         );
       })}

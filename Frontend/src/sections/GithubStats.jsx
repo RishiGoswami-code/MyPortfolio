@@ -13,7 +13,7 @@ async function getJson(url) {
 export default function GithubStats() {
   const [stats, setStats] = useState(null);
   const [days, setDays] = useState(null);
-  const [status, setStatus] = useState('loading'); // loading | ready | error
+  const [status, setStatus] = useState('loading');
 
   useEffect(() => {
     let cancelled = false;
@@ -55,18 +55,18 @@ export default function GithubStats() {
 
   const getIntensity = (level) =>
     [
-      'rgba(238, 240, 245, 0.05)',
-      'rgba(76, 195, 138, 0.25)',
-      'rgba(76, 195, 138, 0.50)',
-      'rgba(76, 195, 138, 0.75)',
-      '#4cc38a',
-    ][level] ?? 'rgba(238, 240, 245, 0.05)';
+      'rgba(255, 255, 255, 0.05)',
+      'rgba(16, 185, 129, 0.3)',
+      'rgba(16, 185, 129, 0.55)',
+      'rgba(16, 185, 129, 0.8)',
+      '#10b981',
+    ][level] ?? 'rgba(255, 255, 255, 0.05)';
 
   if (status === 'loading') {
     return (
       <div className="pt-6 pb-16 flex items-center justify-center">
-        <span className="font-mono text-[12px] text-[var(--text-muted)]">
-          Fetching GitHub activity…
+        <span className="font-mono text-[12px] text-zinc-500">
+          Loading live telemetry…
         </span>
       </div>
     );
@@ -74,13 +74,13 @@ export default function GithubStats() {
 
   if (status === 'error') {
     return (
-      <div className="animate-fade-up pt-6 pb-16 flex flex-col items-start gap-3">
-        <p className="text-[14px] text-[var(--text-secondary)]">GitHub activity is currently unreachable.</p>
+      <div className="pt-6 pb-16 flex flex-col items-start gap-3">
+        <p className="text-[14px] text-zinc-400">GitHub API is currently unreachable.</p>
         <a
           href={`https://github.com/${USERNAME}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 font-mono text-[13px] text-[var(--text-primary)] hover:text-[var(--accent)]"
+          className="inline-flex items-center gap-1.5 font-mono text-[13px] text-white hover:text-indigo-400"
         >
           View profile on GitHub <ArrowUpRight size={14} />
         </a>
@@ -90,37 +90,40 @@ export default function GithubStats() {
 
   const fmt = (v) => (typeof v === 'number' ? v.toLocaleString() : '—');
   const metrics = [
-    { label: 'Public repositories', val: fmt(stats.repos), Icon: BookMarked },
-    { label: 'Stars earned', val: fmt(stats.stars), Icon: Star },
+    { label: 'Public Repositories', val: fmt(stats.repos), Icon: BookMarked },
+    { label: 'Stars Earned', val: fmt(stats.stars), Icon: Star },
     { label: 'Followers', val: fmt(stats.followers), Icon: Users },
-    { label: 'Contributions (last year)', val: fmt(stats.contributions), Icon: GitCommitHorizontal },
+    { label: 'Contributions (Past Year)', val: fmt(stats.contributions), Icon: GitCommitHorizontal },
   ];
 
   return (
-    <div className="animate-fade-up flex flex-col gap-6 pt-6 pb-16">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--hairline)] pb-3">
+    <div className="flex flex-col gap-6 pt-4 pb-16">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[var(--positive)] inline-block" />
-          <span className="font-mono text-[12px] text-[var(--text-secondary)]">
-            GitHub activity
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span className="font-mono text-[12px] text-zinc-300">
+            Live GitHub Telemetry
           </span>
         </div>
-        <span className="font-mono text-[12px] text-[var(--text-muted)]">
+        <span className="font-mono text-[12px] text-zinc-500">
           @{USERNAME}
         </span>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {metrics.map((metric) => {
           const { label, val } = metric;
           const Icon = metric.Icon;
           return (
-            <div key={label} className="card p-4 sm:p-5 flex flex-col gap-2">
-              <Icon size={16} strokeWidth={1.5} className="text-[var(--text-muted)]" aria-hidden="true" />
-              <div className="font-mono text-[26px] text-[var(--text-primary)] font-normal tabular-nums leading-none">
+            <div key={label} className="bento-card p-5 flex flex-col gap-2">
+              <Icon size={18} strokeWidth={1.75} className="text-indigo-400" aria-hidden="true" />
+              <div className="font-mono text-2xl font-bold text-white tracking-tight">
                 {val}
               </div>
-              <div className="font-mono text-[11px] text-[var(--text-muted)] leading-tight">
+              <div className="font-mono text-[11.5px] text-zinc-400">
                 {label}
               </div>
             </div>
@@ -129,15 +132,12 @@ export default function GithubStats() {
       </div>
 
       {days && days.length > 0 && (
-        <div className="card p-5 sm:p-6">
+        <div className="bento-card p-6 sm:p-7">
           <div className="flex flex-wrap items-baseline justify-between gap-3 mb-5">
-            <h3
-              className="text-[18px] text-[var(--text-primary)] font-normal"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              Contributions (last 6 months)
+            <h3 className="text-lg font-bold text-white tracking-tight">
+              Contribution Heatmap (Last 6 Months)
             </h3>
-            <div className="flex gap-1 items-center font-mono text-[11px] text-[var(--text-muted)]">
+            <div className="flex gap-1 items-center font-mono text-[11px] text-zinc-400">
               <span className="mr-1">Less</span>
               {[0, 1, 2, 3, 4].map((v) => (
                 <div key={v} className="w-2.5 h-2.5 rounded-[2px]" style={{ backgroundColor: getIntensity(v) }} />
@@ -147,7 +147,7 @@ export default function GithubStats() {
           </div>
 
           <div className="overflow-x-auto [scrollbar-width:thin]">
-            <div className="grid grid-flow-col grid-rows-7 gap-[3px] sm:gap-[4px] min-w-[420px] aspect-[26/7]">
+            <div className="grid grid-flow-col grid-rows-7 gap-[3.5px] sm:gap-[4px] min-w-[420px] aspect-[26/7]">
               {days.map((d) => (
                 <div
                   key={d.date}
@@ -164,9 +164,9 @@ export default function GithubStats() {
               href={`https://github.com/${USERNAME}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono text-[12px] text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
+              className="inline-flex items-center gap-1.5 font-mono text-[12px] text-zinc-400 hover:text-white transition-colors"
             >
-              View full profile on GitHub <ArrowUpRight size={13} />
+              View profile on GitHub <ArrowUpRight size={13} />
             </a>
           </div>
         </div>

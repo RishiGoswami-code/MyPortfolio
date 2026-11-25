@@ -1,28 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Unslop Ink Ramp: restrained, engineered dark palette with warm amber accent */
-  --bg-page: #0b0d13;
-  --surface-card: #12151f;
-  --surface-raised: #1a2030;
-  --surface-hover: #1e2538;
-  --hairline: rgba(238, 240, 245, 0.08);
-  --hairline-hover: rgba(238, 240, 245, 0.16);
-
-  --text-primary: #eef0f5;
-  --text-secondary: #a3a9b8;
-  --text-muted: #727a8c;
-
-  /* Accent: singular warm amber for deliberate data points */
-  --accent: #f0a842;
-  --accent-dim: rgba(240, 168, 66, 0.12);
-  --accent-rgb: 240, 168, 66;
-
-  /* Semantic status colors (toned down to sit quietly) */
-  --positive: #4cc38a;
-  --positive-dim: rgba(76, 195, 138, 0.12);
-
-  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
   --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
 
@@ -30,130 +9,111 @@
 }
 
 body {
-  background-color: var(--bg-page);
-  color: var(--text-primary);
+  background-color: #050508;
+  color: #f4f4f5;
   font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 14.5px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
   min-height: 100vh;
   overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
+/* Magic UI & Motion.dev Dot Grid Pattern */
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-::selection {
-  background: var(--accent-dim);
-  color: var(--text-primary);
-}
-
-/* Page entrance */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
+/* Magic UI Border Beam Animation */
+@keyframes spin-beam {
+  0% {
+    transform: rotate(0deg);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-.animate-fade-up {
-  animation: fadeIn 200ms ease forwards;
+.animate-spin-beam {
+  animation: spin-beam 8s linear infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-fade-up,
-  * {
-    animation: none !important;
-    transition-duration: 0.01ms !important;
+/* Magic UI Shimmer Animation */
+@keyframes shimmer-move {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
   }
 }
 
-/* Card primitives with nested radiuses */
-.card {
+.animate-shimmer {
+  animation: shimmer-move 3s ease-in-out infinite;
+}
+
+/* Magic UI Bento Card */
+.bento-card {
   position: relative;
-  display: block;
-  background-color: var(--surface-card);
-  border: 1px solid var(--hairline);
-  border-radius: 12px;
-  transition: border-color 150ms ease, background-color 150ms ease;
+  background: linear-gradient(180deg, rgba(24, 24, 27, 0.55) 0%, rgba(9, 9, 11, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.card:hover {
-  border-color: var(--hairline-hover);
-  background-color: var(--surface-hover);
+.bento-card:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px -5px rgba(255, 255, 255, 0.06);
 }
 
-.card-featured {
-  background-color: var(--surface-card);
-  border: 1px solid var(--hairline);
-  border-radius: 14px;
-}
-
-.card-featured:hover {
-  border-color: var(--hairline-hover);
-}
-
-/* Chips / tags */
-.chip {
+/* Magic UI Chip / Tag */
+.magic-chip {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background-color: var(--surface-raised);
-  border: 1px solid var(--hairline);
-  border-radius: 6px;
-  padding: 2.5px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 3px 9px;
   font-family: var(--font-mono);
   font-size: 11.5px;
-  line-height: 1.4;
-  color: var(--text-secondary);
+  color: #d4d4d8;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  transition: border-color 150ms ease, color 150ms ease;
+  transition: all 0.2s ease;
 }
 
-.chip:hover {
-  border-color: var(--hairline-hover);
-  color: var(--text-primary);
+.magic-chip:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
 }
 
-/* Eyebrow / meta text */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--text-muted);
-}
-
-/* Social links */
-.social-pill {
+/* Social link button */
+.magic-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  height: 34px;
-  padding: 0 12px;
-  border-radius: 8px;
-  border: 1px solid var(--hairline);
-  background-color: var(--surface-card);
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-secondary);
-  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(18, 18, 22, 0.75);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #a1a1aa;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
 }
 
-.social-pill:hover {
-  color: var(--text-primary);
-  border-color: var(--hairline-hover);
-  background-color: var(--surface-raised);
+.magic-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
 }

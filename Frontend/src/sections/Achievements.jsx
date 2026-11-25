@@ -15,26 +15,25 @@ export default function Achievements() {
   const { achievements } = usePortfolioData();
 
   return (
-    <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 gap-5 pt-6 pb-16">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 pb-16">
       {achievements.map((item) => {
         const Icon = iconFor(item.title);
         return (
-          <div key={item.title} className="card flex flex-col gap-3 p-6">
+          <div key={item.title} className="bento-card flex flex-col gap-3.5 p-6 sm:p-7">
             <div className="flex items-center justify-between gap-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--surface-raised)] border border-[var(--hairline)] text-[var(--accent)]">
-                <Icon size={16} strokeWidth={1.5} aria-hidden="true" />
+              <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400">
+                <Icon size={19} strokeWidth={1.75} aria-hidden="true" />
               </span>
-              <span className="font-mono text-[11px] text-[var(--text-muted)]">[{item.year}]</span>
+              <span className="font-mono text-[12px] text-zinc-400 px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10">
+                {item.year}
+              </span>
             </div>
 
-            <h3
-              className="text-[20px] leading-[1.3] text-[var(--text-primary)] font-normal mt-1"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
+            <h3 className="text-xl font-bold text-white tracking-tight mt-1">
               {item.title}
             </h3>
 
-            <p className="text-[14px] text-[var(--text-secondary)] leading-[1.65]">
+            <p className="text-[14.5px] text-zinc-400 leading-relaxed">
               {item.desc}
             </p>
           </div>

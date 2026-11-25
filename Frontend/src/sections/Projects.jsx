@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, ShieldCheck, Cpu, GraduationCap, ChartLine, BookOpen, FolderGit2 } from 'lucide-react';
+import { ArrowUpRight, ShieldCheck, Cpu, GraduationCap, ChartLine, BookOpen, FolderGit2, Check } from 'lucide-react';
 import { usePortfolioData } from '../hooks/usePortfolioData';
 import mindfriesLogo from '../assets/mindfries-logo.png';
 
@@ -13,65 +13,62 @@ const projectIcons = {
   'CodeGraphContext Docs': BookOpen,
 };
 
-function Tag({ children }) {
-  return <span className="chip">{children}</span>;
-}
-
 function FeaturedProject({ project }) {
   return (
     <a
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="card card-featured group sm:col-span-2 grid grid-cols-1 md:grid-cols-[1fr_240px] gap-8 p-6 sm:p-8"
+      className="bento-card group sm:col-span-2 grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-8 p-7 sm:p-9 border border-indigo-500/20 hover:border-indigo-500/40"
     >
       <div className="flex flex-col min-w-0">
-        <div className="flex items-center gap-2.5 mb-3">
-          <span className="px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-[var(--surface-raised)] border border-[var(--hairline)] text-[var(--accent)]">
+        <div className="flex items-center gap-2.5 mb-4">
+          <span className="px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
             {project.badge}
           </span>
-          <span className="eyebrow">{project.eyebrow}</span>
+          <span className="font-mono text-[11px] text-zinc-400 uppercase tracking-wider">
+            {project.eyebrow}
+          </span>
         </div>
 
         <div className="flex items-center gap-3.5 mb-3">
           <img
             src={logos[project.name]}
             alt=""
-            width="40"
-            height="40"
-            className="w-10 h-10 shrink-0 rounded-lg bg-white border border-[var(--hairline)] p-1 object-contain"
+            width="44"
+            height="44"
+            className="w-11 h-11 shrink-0 rounded-xl bg-white border border-white/10 p-1 object-contain shadow-md"
           />
-          <h3
-            className="text-[28px] sm:text-[34px] leading-[1.15] text-[var(--text-primary)] font-normal"
-            style={{ fontFamily: 'var(--font-display)' }}
-          >
+          <h3 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
             {project.name}
           </h3>
         </div>
 
-        <p className="text-[16px] text-[var(--accent)] mb-3 font-medium">
+        <p className="text-[17px] text-indigo-300 font-medium mb-3">
           {project.tagline}
         </p>
 
-        <p className="text-[14.5px] text-[var(--text-secondary)] leading-[1.7] max-w-[620px]">
+        <p className="text-[15px] text-zinc-400 leading-relaxed max-w-[620px]">
           {project.desc}
         </p>
       </div>
 
-      <div className="flex flex-col justify-between gap-6 md:border-l md:border-[var(--hairline)] md:pl-8">
-        <ul className="flex flex-col gap-2.5">
+      <div className="flex flex-col justify-between gap-6 md:border-l md:border-white/10 md:pl-8">
+        <ul className="flex flex-col gap-3">
           {project.highlights.map((item) => (
-            <li key={item} className="flex items-start gap-2.5 text-[14px] text-[var(--text-secondary)] leading-[1.5]">
-              <span className="mt-[7px] w-[5px] h-[5px] rounded-full bg-[var(--accent)] shrink-0" />
+            <li key={item} className="flex items-start gap-2.5 text-[14.5px] text-zinc-300">
+              <span className="mt-1 flex items-center justify-center w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 shrink-0">
+                <Check size={11} strokeWidth={3} />
+              </span>
               <span>{item}</span>
             </li>
           ))}
         </ul>
 
-        <span className="inline-flex items-center gap-1.5 text-[13px] font-mono text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
-          <span>{project.urlLabel}</span>
-          <ArrowUpRight size={15} className="transition-transform duration-150 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
-        </span>
+        <div className="inline-flex items-center gap-2 text-[14px] font-medium text-white group-hover:text-indigo-400 transition-colors pt-4">
+          <span>Explore platform ({project.urlLabel})</span>
+          <ArrowUpRight size={16} className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </div>
       </div>
     </a>
   );
@@ -81,7 +78,7 @@ export default function Projects() {
   const { featured, projects } = usePortfolioData();
 
   return (
-    <div className="animate-fade-up grid grid-cols-1 sm:grid-cols-2 gap-5 pt-6 pb-16">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 pb-16">
       {featured && <FeaturedProject project={featured} />}
 
       {projects.map((project, idx) => {
@@ -93,44 +90,45 @@ export default function Projects() {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className={`card group flex flex-col h-full p-6 ${spanLast ? 'sm:col-span-2' : ''}`}
+            className={`bento-card group flex flex-col h-full p-6 sm:p-7 ${spanLast ? 'sm:col-span-2' : ''}`}
           >
             <div className="flex items-start justify-between gap-4 mb-4">
               <span className="flex items-center gap-2.5">
-                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--surface-raised)] border border-[var(--hairline)] text-[var(--text-secondary)]">
-                  <Icon size={16} strokeWidth={1.5} aria-hidden="true" />
+                <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-white/5 border border-white/10 text-zinc-300 group-hover:text-white transition-colors">
+                  <Icon size={18} strokeWidth={1.75} aria-hidden="true" />
                 </span>
-                <span className="eyebrow">{project.eyebrow}</span>
+                <span className="font-mono text-[11px] text-zinc-400 uppercase tracking-wider">
+                  {project.eyebrow}
+                </span>
               </span>
               <ArrowUpRight
-                size={16}
-                className="shrink-0 text-[var(--text-muted)] transition-colors duration-150 group-hover:text-[var(--accent)] group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"
+                size={18}
+                className="shrink-0 text-zinc-500 transition-all duration-200 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1"
               />
             </div>
 
-            <h3
-              className="text-[22px] leading-[1.25] text-[var(--text-primary)] font-normal mb-2"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
+            <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
               {project.name}
             </h3>
 
-            <p className="text-[14px] text-[var(--text-secondary)] line-clamp-2 mb-6 leading-[1.65]">
+            <p className="text-[14px] text-zinc-400 line-clamp-3 mb-6 leading-relaxed">
               {project.desc}
             </p>
 
-            <div className="mt-auto mb-5">
-              <div className="font-mono text-[24px] text-[var(--text-primary)] font-normal tabular-nums leading-none">
+            <div className="mt-auto mb-6">
+              <div className="font-mono text-[26px] font-semibold text-white tracking-tight">
                 {project.stat}
               </div>
-              <div className="font-mono text-[11px] text-[var(--text-muted)] mt-1 tracking-tight">
+              <div className="font-mono text-[11.5px] text-zinc-400 mt-0.5">
                 {project.statLabel}
               </div>
             </div>
 
             <div className="flex flex-wrap gap-1.5">
               {project.tech.map((tech) => (
-                <Tag key={tech}>{tech}</Tag>
+                <span key={tech} className="magic-chip">
+                  {tech}
+                </span>
               ))}
             </div>
           </a>
