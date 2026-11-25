@@ -4,73 +4,71 @@ import Projects from './sections/Projects';
 import Experience from './sections/Experience';
 import Achievements from './sections/Achievements';
 import GithubStats from './sections/GithubStats';
-import TabNav from './components/TabNav';
 import { ArrowUpRight } from 'lucide-react';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
-      {/* Sticky Top Minimalist Masthead */}
-      <header className="sticky top-0 z-50 w-full border-b border-[var(--line)] bg-[#070709]/85 backdrop-blur-md">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-12 h-14 flex items-center justify-between">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--fg)] selection:bg-[var(--accent)] selection:text-black">
+      {/* Sticky Top Navbar matching Image 1 */}
+      <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#050507]/90 backdrop-blur-md">
+        <div className="max-w-[1240px] mx-auto px-6 sm:px-12 h-16 flex items-center justify-between">
+          {/* Left: Chandan Giri + AI Systems Engineer & Founder */}
           <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-[var(--accent)]" />
-            <a href="#" className="font-semibold text-sm tracking-tight text-[var(--fg)] hover:text-[var(--accent)] transition-colors">
+            <a href="#" className="font-editorial text-xl font-medium tracking-tight text-[#f4f4f5] hover:text-[var(--accent)] transition-colors">
               Chandan Giri
             </a>
-            <span className="hidden sm:inline font-mono text-[11px] text-[var(--fg-muted)]">
-              / AI Systems Engineer &amp; Founder
+            <span className="hidden sm:inline text-xs text-[var(--fg-muted)] font-light">
+              AI Systems Engineer &amp; Founder
             </span>
           </div>
 
-          <TabNav />
+          {/* Right: Nav Links + Inquire ↗ Button matching Image 1 */}
+          <div className="flex items-center gap-6 sm:gap-8">
+            <nav className="hidden md:flex items-center gap-6 text-[13px] text-[var(--fg-muted)] font-light">
+              <a href="#mindfries" className="hover:text-white transition-colors">Mindfries</a>
+              <a href="#systems" className="hover:text-white transition-colors">Systems</a>
+              <a href="#trajectory" className="hover:text-white transition-colors">Projects</a>
+              <a href="#recognition" className="hover:text-white transition-colors">Recognition</a>
+            </nav>
 
-          <div className="flex items-center gap-4">
-            <a
-              href="https://mindfries.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono-meta text-[11px] text-[var(--accent)] hover:underline hidden sm:inline"
-            >
-              mindfries.com ↗
-            </a>
             <a
               href="mailto:su-24036@sitare.org"
-              className="font-mono text-xs px-3.5 py-1.5 rounded bg-[var(--fg)] text-[var(--bg)] font-medium hover:bg-[var(--accent)] transition-colors"
+              className="btn-cream !text-xs !py-1.5 !px-3.5"
             >
-              Inquire
+              <span>Inquire</span>
+              <ArrowUpRight size={13} />
             </a>
           </div>
         </div>
       </header>
 
-      {/* Main Curated Editorial Flow */}
-      <main className="max-w-[1200px] mx-auto px-6 sm:px-12 editorial-grid flex flex-col">
+      {/* Main Curated Content Flow */}
+      <main className="max-w-[1240px] mx-auto px-6 sm:px-12 flex flex-col">
         <Hero />
         <Projects />
         <Experience />
         <Achievements />
         <GithubStats />
 
-        {/* 06 // COLOPHON & DIRECT INQUIRIES */}
+        {/* Closing Direct Inquiries Section */}
         <section className="py-24">
           <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[var(--line)] mb-12">
             <span className="font-mono-meta text-[var(--accent)]">
-              [ 06 // DIRECT CONTACT &amp; COLOPHON ]
+              [ 06 // DIRECT CONTACT &amp; INQUIRIES ]
             </span>
             <span className="font-mono-meta">
-              OPEN FOR ENGINEERING COLLABORATIONS
+              OPEN FOR HIGH-IMPACT RESEARCH &amp; SYSTEMS
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-end mb-16">
             <div>
               <h2 className="font-editorial text-4xl sm:text-6xl xl:text-7xl font-light text-[var(--fg)] leading-none mb-6">
-                Let&rsquo;s build intelligent, <br />
-                <span className="italic font-normal text-[var(--accent)] font-editorial">fault-tolerant</span> systems.
+                Building intelligent <br />
+                <span className="italic font-normal text-[var(--accent)] font-editorial">systems</span> for the real world.
               </h2>
               <p className="text-[16px] text-[var(--fg-muted)] font-light max-w-lg leading-relaxed">
-                Available for research advisorship, AI systems architecture, and high-impact engineering projects.
+                Available for research advisorship, robotics autonomy engineering, and distributed systems architecture.
               </p>
             </div>
 

@@ -13,7 +13,6 @@ async function getJson(url) {
 export default function GithubStats() {
   const [stats, setStats] = useState(null);
   const [days, setDays] = useState(null);
-  const [status, setStatus] = useState('loading');
 
   useEffect(() => {
     let cancelled = false;
@@ -42,10 +41,8 @@ export default function GithubStats() {
         next.contributions = contribs.value.total?.lastYear;
       }
 
-      const anything = Object.keys(next).length > 0 || recent;
       setStats(next);
       setDays(recent);
-      setStatus(anything ? 'ready' : 'error');
     });
 
     return () => {
@@ -65,7 +62,7 @@ export default function GithubStats() {
   const fmt = (v) => (typeof v === 'number' ? v.toLocaleString() : '—');
 
   return (
-    <section id="telemetry" className="py-20 border-b border-[var(--line)]">
+    <section id="telemetry" className="py-20 sm:py-24 border-b border-[var(--line)]">
       <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[var(--line)] mb-12">
         <span className="font-mono-meta text-[var(--accent)]">
           [ 05 // CODE TELEMETRY &amp; ACTIVITY ]

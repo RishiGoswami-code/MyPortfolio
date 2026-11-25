@@ -1,59 +1,72 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { usePortfolioData } from '../hooks/usePortfolioData';
 
 export default function Hero() {
-  const { meta } = usePortfolioData();
+  const { meta, featured } = usePortfolioData();
+  const [scrollY, setScrollY] = useState(0);
+
+  // Subtle Parallax Effect on Rover Image
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <section className="pt-16 sm:pt-28 pb-16 border-b border-[var(--line)]">
-      {/* Top Metadata Masthead */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-10">
-        <span className="font-mono-meta text-[var(--fg)]">
-          [ 00 // CHANDAN GIRI ]
-        </span>
-        <span className="font-mono-meta hidden sm:inline">
-          FOUNDER &middot; AI SYSTEMS &middot; AUTONOMOUS ROBOTICS
-        </span>
-        <span className="font-mono-meta text-[var(--accent)] flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
-          AVAILABLE FOR HIGH-IMPACT RESEARCH
-        </span>
-      </div>
+    <section className="relative w-full pt-20 sm:pt-28 pb-16 sm:pb-24 border-b border-[var(--line)] overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] items-center gap-12 lg:gap-8">
+        {/* Left Side: Headlines & Action Buttons matching Image 1 */}
+        <div className="flex flex-col z-10">
+          <h1 className="font-editorial text-[50px] sm:text-[76px] xl:text-[88px] font-light leading-[1.03] tracking-tight text-[#f4f4f5] mb-6">
+            Building <br />
+            <span className="italic font-normal text-[var(--accent)] font-editorial">
+              intelligent systems
+            </span>{' '}
+            <br />
+            for the real world.
+          </h1>
 
-      {/* Monumental Editorial Headline */}
-      <h1 className="font-editorial text-[52px] sm:text-[90px] xl:text-[112px] font-light leading-[0.92] tracking-[-0.03em] text-[var(--fg)] mb-12">
-        Architecting <br className="hidden sm:inline" />
-        <span className="italic font-normal text-[var(--accent)] font-editorial">Autonomous Systems</span> <br />
-        &amp; Verifiable Intelligence.
-      </h1>
-
-      {/* Asymmetric Narrative & Coordinates */}
-      <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 sm:gap-16 pt-10 border-t border-[var(--line)]">
-        <div>
-          <p className="text-[18px] sm:text-[21px] text-[var(--fg)] font-light leading-[1.65]">
-            Founder &amp; CEO of <a href="https://mindfries.com" target="_blank" rel="noopener noreferrer" className="editorial-link font-normal text-[var(--accent)]">Mindfries</a>, Smart India Hackathon National Finalist, and architect of <strong>DRISHTI-UGV</strong> (ROS 2 autonomous navigation stack). Specializing in AI/ML pipelines, visual SLAM, and evidence-first technical evaluation.
+          <p className="text-[16px] sm:text-[18px] text-[var(--fg-muted)] max-w-lg leading-[1.7] mb-8 font-light">
+            Founder of Mindfries. Designing AI systems and autonomous robotics, from research to deployment.
           </p>
+
+          <div className="flex flex-wrap items-center gap-3.5">
+            <a
+              href={featured?.url || 'https://mindfries.com'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cream"
+            >
+              <span>Explore Mindfries</span>
+              <ArrowUpRight size={14} />
+            </a>
+
+            <a href="#systems" className="btn-outline">
+              <span>View Projects</span>
+            </a>
+          </div>
         </div>
 
-        <div className="flex flex-col justify-between gap-8">
-          <p className="text-[14.5px] text-[var(--fg-muted)] leading-[1.75] font-light">
-            Currently architecting production AI workflows at AMIPI and building educational AI infrastructure at OzymorLab. Open-source contributor to projects including <strong>sktime</strong> and <strong>CodeGraphContext</strong>.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-2">
-            <a href="https://github.com/RishiGoswami-code" target="_blank" rel="noopener noreferrer" className="editorial-link font-mono-meta text-[var(--fg)]">
-              GitHub ↗
-            </a>
-            <a href="https://www.linkedin.com/in/chandan-giri-307927247/" target="_blank" rel="noopener noreferrer" className="editorial-link font-mono-meta text-[var(--fg)]">
-              LinkedIn ↗
-            </a>
-            <a href="https://x.com/RishiGoswamii" target="_blank" rel="noopener noreferrer" className="editorial-link font-mono-meta text-[var(--fg)]">
-              X (Twitter) ↗
-            </a>
-            <a href="mailto:su-24036@sitare.org" className="editorial-link font-mono-meta text-[var(--fg)]">
-              Contact ↗
-            </a>
+        {/* Right Side: DRISHTI-UGV Rover Visual on Rocky Terrain with Parallax */}
+        <div className="relative flex justify-center lg:justify-end">
+          <div
+            className="relative w-full max-w-[580px] transition-transform duration-100 ease-out"
+            style={{
+              transform: `translateY(${Math.min(scrollY * 0.08, 40)}px)`,
+            }}
+          >
+            <img
+              src="/drishti-hero.jpg"
+              alt="DRISHTI-UGV Autonomous Ground Vehicle"
+              className="w-full h-auto object-cover rounded-2xl shadow-2xl"
+              style={{
+                maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+              }}
+            />
           </div>
         </div>
       </div>
