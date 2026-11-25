@@ -62,9 +62,15 @@ export default function GithubStats() {
   const fmt = (v) => (typeof v === 'number' ? v.toLocaleString() : '—');
 
   return (
-    <section id="telemetry" className="w-full px-6 sm:px-12 lg:px-20 xl:px-24 py-24 sm:py-32 border-b border-[var(--line)]">
+    <section
+      id="open-source"
+      className="w-full px-6 sm:px-12 lg:px-20 xl:px-24 py-24 sm:py-32 border-b border-[var(--line)]"
+    >
+      <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-[var(--fg-muted)] mb-4">
+        Engineering Culture
+      </div>
       <h2 className="font-editorial text-4xl sm:text-6xl font-light text-[var(--fg)] leading-none mb-10">
-        Open source &amp; telemetry.
+        Code in the open.
       </h2>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line)] border border-[var(--line)] rounded-xl overflow-hidden mb-8">
@@ -132,7 +138,7 @@ export default function GithubStats() {
               rel="noopener noreferrer"
               className="editorial-link font-mono text-xs text-[var(--fg)]"
             >
-              Inspect profile on GitHub <ArrowUpRight size={13} />
+              View full profile on GitHub <ArrowUpRight size={13} />
             </a>
           </div>
         </div>

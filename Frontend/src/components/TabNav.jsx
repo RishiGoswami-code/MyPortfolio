@@ -1,11 +1,11 @@
 import React from 'react';
 
 const navItems = [
-  { id: 'mindfries', label: '01 Mindfries' },
-  { id: 'systems', label: '02 Systems' },
-  { id: 'trajectory', label: '03 Trajectory' },
-  { id: 'recognition', label: '04 Recognition' },
-  { id: 'telemetry', label: '05 Telemetry' },
+  { id: 'product', label: '01 Product' },
+  { id: 'work', label: '02 Work' },
+  { id: 'experience', label: '03 Experience' },
+  { id: 'traction', label: '04 Traction' },
+  { id: 'open-source', label: '05 Open Source' },
 ];
 
 export default function TabNav() {

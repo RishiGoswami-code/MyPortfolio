@@ -4,9 +4,9 @@
       "Chandan",
       "Giri"
     ],
-    "role": "Founder and CEO",
-    "title": "AI Engineer & Researcher",
-    "summary": "AI Engineer and researcher, Smart India Hackathon 2025 National Finalist, with production experience at Sendlume. Currently building AI-native products at AMIPI and architecting DRISHTI-UGV, a ROS 2 autonomous navigation stack. Open-source contributor to projects including CodeGraphContext and sktime. Specializing in AI/ML pipelines, backend engineering and distributed systems.",
+    "role": "Founder & AI Engineer",
+    "title": "Builder",
+    "summary": "AI engineer and founder. Built and deployed four products in two years — an AI hiring platform (Mindfries), an autonomous ground vehicle navigation stack (DRISHTI-UGV), an exam grading engine (OzymorLab), and AI workflow systems at Sendlume. Smart India Hackathon 2025 national finalist. Open-source contributor to CodeGraphContext, sktime, AOSSIE, and Stability Nexus.",
     "links": [
       {
         "label": "GitHub",
@@ -36,8 +36,8 @@
       "role": "AI Engineering Intern",
       "period": "Sept 2026 — Present",
       "bullets": [
-        "Designed and implemented an AI-powered website auditing workflow for amipi.com that analyzes page performance, metadata, HTML structure, SEO and link integrity, surfacing missing metadata, structural HTML problems and broken or weak links.",
-        "Built an LLM-driven recommendation layer that turns raw diagnostic findings into prioritized, actionable optimization suggestions, automating website health monitoring so no one has to inspect every page and metric by hand."
+        "Built an AI-powered website auditing pipeline that scans pages for broken links, missing metadata, structural HTML problems, and SEO gaps.",
+        "Added an LLM recommendation layer that turns raw diagnostic data into prioritized fixes — no one has to inspect every page by hand."
       ]
     },
     {
@@ -45,18 +45,18 @@
       "role": "AI Engineer Intern",
       "period": "July 2026 — Sept 2026",
       "bullets": [
-        "Built AI-native products and autonomous multi-agent systems for business intelligence, strategy automation and content generation using LLMs, FastAPI, React and modern AI infrastructure.",
-        "Designed and developed an AI Strategy Intelligence Platform integrating trend discovery, knowledge management, agent orchestration and analytics to help businesses automate research, planning and decision-making.",
-        "Architected scalable backend services, AI workflows and production-ready APIs, working closely with leadership to turn business requirements into intelligent software products."
+        "Shipped multi-agent systems for business intelligence — trend discovery, knowledge management, strategy automation.",
+        "Built an AI Strategy Intelligence Platform with agent orchestration, analytics, and production-ready APIs.",
+        "Worked directly with leadership to turn business requirements into deployed software."
       ]
     },
     {
       "company": "OZYMORLAB",
-      "role": "Founder — Educational AI Infrastructure",
+      "role": "Founder",
       "period": "2025 — Present",
       "bullets": [
-        "Founded an open-source educational AI infrastructure platform that automates the full examination lifecycle: exam management, rubric design, answer-sheet evaluation, grading workflows and academic analytics for institutions.",
-        "Architected a production-ready assessment engine using OCR, LLMs, explainable AI and distributed backend services to turn handwritten answer sheets into structured, auditable evaluations with transparent grading rationales and performance insights."
+        "Founded an open-source platform automating the full exam lifecycle: management, rubric design, evaluation, grading, analytics.",
+        "Built a production assessment engine using OCR, LLMs, and explainable AI to convert handwritten answer sheets into auditable evaluations."
       ]
     },
     {
@@ -64,127 +64,95 @@
       "role": "Full-Stack & AI Engineer",
       "period": "Sept 2025 — March 2026",
       "bullets": [
-        "Led architecture of Sendlume’s AI workflow generation system, reducing LLM token costs from 3M to 20K (99% reduction) by redesigning prompt pipelines.",
-        "Designed and deployed a pixel-level email tracking microservice processing 10,000+ events/day with high reliability using invisible beacon technology and an async event queue.",
-        "Engineered an AI workflow canvas with a node-based visual interface backed by a stateless REST API, enabling non-technical users to design and deploy automation pipelines.",
-        "Built a real-time analytics dashboard using WebSocket streams and Redis-cached PostgreSQL aggregations, delivering live campaign KPIs with sub-100ms latency.",
-        "Maintained scalable DevOps infrastructure using Neon, Redis, Docker, improving system uptime and deployment efficiency."
+        "Redesigned prompt pipelines, cutting LLM token costs from 3M to 20K per workflow (99% reduction).",
+        "Built a pixel-level email tracking microservice processing 10,000+ events/day with an async event queue.",
+        "Shipped a node-based AI workflow canvas backed by a stateless REST API for non-technical users.",
+        "Built a real-time analytics dashboard with WebSocket streams and Redis-cached PostgreSQL aggregations. Sub-100ms latency.",
+        "Maintained infrastructure on Neon, Redis, Docker."
       ]
     }
   ],
   "featured": {
-    "badge": "Featured",
+    "badge": "Flagship",
     "eyebrow": "AI HIRING PLATFORM",
     "name": "Mindfries",
-    "tagline": "Real skills. Real evidence. Better hiring.",
-    "desc": "An AI hiring platform that evaluates engineering ability through real coding tasks, system design and AI-led interviews, so teams hire on evidence instead of résumés.",
+    "tagline": "Hire engineers for what they can do, not what they claim.",
+    "desc": "Mindfries runs candidates through real coding tasks, system design problems, and AI-conducted technical interviews. Every evaluation produces structured, verifiable evidence.",
     "highlights": [
-      "Real coding tasks",
-      "System design rounds",
-      "AI-led interviews"
+      "Live coding evaluation",
+      "System design assessment",
+      "AI-conducted interviews"
     ],
     "url": "https://mindfries.com",
     "urlLabel": "mindfries.com"
   },
   "projects": [
     {
-      "eyebrow": "HACKATHON",
-      "name": "Viking Validators",
-      "desc": "A production platform for academic document fraud detection using an ensemble ML pipeline.",
-      "stat": "94%",
-      "statLabel": "Accuracy",
-      "tech": [
-        "FastAPI",
-        "TensorFlow",
-        "Express.js",
-        "MongoDB",
-        "OpenCV"
-      ],
-      "github": "https://github.com/RishiGoswami-code/VikingMachineLearningModel"
-    },
-    {
       "eyebrow": "ROBOTICS",
       "name": "DRISHTI-UGV",
-      "desc": "A ROS 2 hybrid navigation stack for a GPS-denied outdoor ground vehicle, fusing stereo-vision SLAM, GPU-accelerated terrain mapping and Nav2 path planning behind a deterministic C++ safety supervisor.",
+      "desc": "ROS 2 navigation stack for GPS-denied outdoor vehicles. Stereo-vision SLAM, GPU terrain mapping, 5,000+ safety assertions.",
       "stat": "~5,000",
-      "statLabel": "Safety Unit-Test Assertions",
-      "tech": [
-        "ROS 2",
-        "C++",
-        "Python",
-        "Nav2",
-        "RTAB-Map",
-        "CUDA",
-        "Gazebo",
-        "Docker"
-      ],
+      "statLabel": "Safety Assertions",
+      "tech": ["ROS 2", "C++", "Python", "Nav2", "RTAB-Map", "CUDA", "Gazebo", "Docker"],
       "github": "https://github.com/RishiGoswami-code/drishti-ugv"
     },
     {
-      "eyebrow": "OPEN SOURCE",
+      "eyebrow": "ML · SIH FINALIST",
+      "name": "Viking Validators",
+      "desc": "Detects forged academic documents using an ensemble ML pipeline. 94% accuracy. Built for Smart India Hackathon 2025.",
+      "stat": "94%",
+      "statLabel": "Accuracy",
+      "tech": ["FastAPI", "TensorFlow", "Express.js", "MongoDB", "OpenCV"],
+      "github": "https://github.com/RishiGoswami-code/VikingMachineLearningModel"
+    },
+    {
+      "eyebrow": "EDTECH · OPEN SOURCE",
       "name": "OzymorLab",
-      "desc": "Open-source educational AI infrastructure that turns handwritten answer sheets into structured, auditable evaluations using OCR, LLMs and explainable grading.",
+      "desc": "Automates the entire exam lifecycle — scanning handwritten answer sheets into graded, auditable evaluations with OCR and LLMs.",
       "stat": "End-to-end",
-      "statLabel": "Exam Lifecycle Automated",
-      "tech": [
-        "OCR",
-        "LLMs",
-        "Explainable AI",
-        "FastAPI",
-        "React"
-      ],
+      "statLabel": "Exam Lifecycle",
+      "tech": ["OCR", "LLMs", "Explainable AI", "FastAPI", "React"],
       "github": "https://ozymorlab.vercel.app"
     },
     {
       "eyebrow": "QUANT RESEARCH",
       "name": "Quantitative Finance Models",
-      "desc": "JPMorgan Chase quantitative research case study: natural gas price forecasting, commodity storage contract valuation, and a logistic-regression Probability of Default model with dynamic FICO score bucketing.",
+      "desc": "JPMorgan Chase case study — gas price forecasting, commodity storage valuation, and a Probability of Default model with dynamic FICO bucketing.",
       "stat": "~15%",
       "statLabel": "Better Default Prediction",
-      "tech": [
-        "Python",
-        "Time-Series",
-        "Logistic Regression",
-        "Pandas",
-        "Scikit-learn"
-      ],
+      "tech": ["Python", "Time-Series", "Logistic Regression", "Pandas", "Scikit-learn"],
       "github": "https://github.com/RishiGoswami-code/QuantAnalysis"
     },
     {
-      "eyebrow": "OPEN SOURCE",
+      "eyebrow": "OPEN SOURCE · MERGED",
       "name": "CodeGraphContext Docs",
-      "desc": "Designed and built the documentation for CodeGraphContext, an MCP server and CLI that indexes local code into a graph database to give AI assistants context. Merged upstream.",
+      "desc": "Wrote the docs for an MCP server + CLI that indexes codebases into graph databases for AI assistants. PR merged upstream.",
       "stat": "4k+",
-      "statLabel": "GitHub Stars on the Project",
-      "tech": [
-        "Documentation",
-        "MCP",
-        "UI/UX",
-        "Open Source"
-      ],
+      "statLabel": "GitHub Stars",
+      "tech": ["Documentation", "MCP", "UI/UX", "Open Source"],
       "github": "https://github.com/CodeGraphContext/CodeGraphContext/pull/875"
     }
   ],
   "achievements": [
     {
       "title": "Smart India Hackathon 2025 National Finalist",
-      "desc": "Led team 'Viking Validators' to India's largest government-organized hackathon national finals as ML Lead and primary system architect.",
+      "desc": "Led team Viking Validators to India's largest government hackathon finals as ML lead. 10,000+ teams entered.",
       "year": "2025"
     },
     {
       "title": "Sitare Foundation Merit Scholarship",
-      "desc": "Awarded a highly competitive merit-based scholarship covering 100% of B.Tech tuition.",
+      "desc": "100% B.Tech tuition covered. Academic merit.",
       "year": "2024"
     },
     {
       "title": "Top Neurons Foundation Scholarship",
-      "desc": "Merit-based scholarship covering 100% of IIT JEE preparation tuition.",
-      "year": "2021 — 2023"
+      "desc": "Full IIT JEE preparation coverage. Three consecutive years.",
+      "year": "2021–2023"
     },
     {
       "title": "Open Source Contributor",
-      "desc": "Contributed to sktime, CodeGraphContext, AOSSIE and Stability Nexus. Built CodeGraphContext's documentation, implemented async data loading in sktime, and shipped oracle features and UI/UX redesigns.",
-      "year": "2024"
+      "desc": "Shipped to sktime, CodeGraphContext (4k+ stars), AOSSIE, Stability Nexus. Docs, async loaders, oracle features, UI redesigns.",
+      "year": "2024–Present"
     }
   ]
 }
