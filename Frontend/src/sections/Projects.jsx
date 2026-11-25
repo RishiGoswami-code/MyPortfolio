@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, ShieldCheck, Cpu, GraduationCap, ChartLine, BookOpen, FolderGit2, Check } from 'lucide-react';
+import { ArrowUpRight, ShieldCheck, Cpu, GraduationCap, ChartLine, BookOpen, FolderGit2, Check, Sparkles } from 'lucide-react';
 import { usePortfolioData } from '../hooks/usePortfolioData';
 import mindfriesLogo from '../assets/mindfries-logo.png';
 
@@ -19,11 +19,12 @@ function FeaturedProject({ project }) {
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="bento-card group sm:col-span-2 grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-8 p-7 sm:p-9 border border-indigo-500/20 hover:border-indigo-500/40"
+      className="bento-card group sm:col-span-2 grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-8 p-7 sm:p-9 border border-indigo-500/25 hover:border-indigo-500/50"
     >
       <div className="flex flex-col min-w-0">
         <div className="flex items-center gap-2.5 mb-4">
-          <span className="px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+          <span className="px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center gap-1.5">
+            <Sparkles size={12} />
             {project.badge}
           </span>
           <span className="font-mono text-[11px] text-zinc-400 uppercase tracking-wider">
@@ -78,7 +79,7 @@ export default function Projects() {
   const { featured, projects } = usePortfolioData();
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 pb-16">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2 pb-16">
       {featured && <FeaturedProject project={featured} />}
 
       {projects.map((project, idx) => {

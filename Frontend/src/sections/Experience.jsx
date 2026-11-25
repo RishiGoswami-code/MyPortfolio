@@ -13,20 +13,18 @@ export default function Experience() {
   const { experience } = usePortfolioData();
 
   return (
-    <ol className="relative flex flex-col pt-4 pb-16">
-      {/* Timeline vertical rail */}
+    <ol className="relative flex flex-col pt-2 pb-16">
       <span aria-hidden="true" className="absolute left-[19px] top-6 bottom-12 w-px bg-white/10" />
 
       {experience.map((item) => {
         const Icon = companyIcons[item.company] || Briefcase;
         return (
           <li key={item.company + item.period} className="group relative pl-14 sm:pl-16 pb-10 last:pb-0">
-            {/* Timeline node */}
             <span className="absolute left-0 top-0 flex items-center justify-center w-10 h-10 rounded-xl bg-zinc-900 border border-white/10 text-zinc-300 transition-colors duration-200 group-hover:border-indigo-400/50 group-hover:text-indigo-400 shadow-md">
               <Icon size={17} strokeWidth={1.75} aria-hidden="true" />
             </span>
 
-            <div className="bento-card p-6">
+            <div className="bento-card p-6 sm:p-7">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                 <span className="font-mono text-[13px] font-semibold text-white">
                   {item.company}

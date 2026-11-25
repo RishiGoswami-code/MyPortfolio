@@ -2,19 +2,19 @@ import React from 'react';
 import { Briefcase, FolderGit2, Trophy, Activity } from 'lucide-react';
 
 const icons = {
+  'Projects (Bento)': FolderGit2,
   Experience: Briefcase,
-  Projects: FolderGit2,
   Achievements: Trophy,
-  'GitHub activity': Activity,
+  'GitHub Activity': Activity,
 };
 
 export default function TabNav({ tabs, activeTab, setActiveTab }) {
   return (
-    <div className="flex justify-center sm:justify-start w-full my-4">
+    <div className="flex justify-center w-full my-8">
       <nav className="inline-flex items-center gap-1.5 p-1.5 rounded-full bg-zinc-900/80 border border-white/10 backdrop-blur-xl shadow-2xl overflow-x-auto [scrollbar-width:none]">
         {tabs.map((tab) => {
           const isActive = activeTab === tab;
-          const Icon = icons[tab] || Briefcase;
+          const Icon = icons[tab] || FolderGit2;
           return (
             <button
               key={tab}

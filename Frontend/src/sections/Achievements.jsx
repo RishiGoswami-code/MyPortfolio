@@ -15,7 +15,7 @@ export default function Achievements() {
   const { achievements } = usePortfolioData();
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 pb-16">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2 pb-16">
       {achievements.map((item) => {
         const Icon = iconFor(item.title);
         return (
