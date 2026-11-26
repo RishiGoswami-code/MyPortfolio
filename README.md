@@ -1,52 +1,25 @@
-# ⚡ Full-Stack Portfolio Website
+# Chandan Giri — portfolio
 
-A modern, high-performance **full-stack portfolio website** built with **React + Vite** on the frontend and **Node.js + Express** on the backend — all maintained in a **single monorepo**.
+A Framer-style SaaS landing page where the product is me. Layout, motion and type follow the structure of the Lume Stitches Framer template (stacked rounded panels, hanging tab nav, digit loader, tilting app window, sticky question sequence, flying benefit cards, wide closing banner), rebuilt from scratch in React with my own content.
 
-This project showcases not just design, but **engineering discipline, scalability, and real-world architecture**.
+## Real product visuals (`Frontend/public/products/`)
 
----
+| File | Source |
+| --- | --- |
+| `mindfries-site.webp` | Screenshot of mindfries.com |
+| `mindfries-poster.webp` | mindfries.com launch video poster |
+| `ozymor-site.webp`, `ozymor-dashboard.webp` | Screenshots of ozymorlab.vercel.app |
+| `drishti-lab.mp4`, `drishti-lab*.webp` | Recording of `drishti-ugv/prototype/web/drishti_lab.html` running the gauntlet course |
+| `viking-app.webp` | `VikingMachineLearningModel/index.html` rendered |
+| `quant-*.webp` | Charts from `QuantAnalysis/Models/` |
+| `cgc-*.webp` | From the CodeGraphContext repo (MIT licence) |
 
-## Tech Stack
+## Stack
 
-### Frontend
--  **React**
--  **Vite** (blazing-fast bundler)
--  CSS / Tailwind / Styled Components (choose what you use)
--  Axios / Fetch API
-
-### Backend
--  **Node.js**
--  **Express.js**
--  Environment-based configuration
--  REST APIs
-
-### Tooling & DevOps
--  NPM / PNPM
--  Concurrently (for running FE + BE together)
--  ESLint & Prettier
--  (Optional) Jest / Supertest
-
----
-
-##  Project Structure
+React 19, Vite 6, Motion (`motion/react`) for scroll-linked animation, Lenis for smooth scrolling, self-hosted Inter and Archivo variable fonts. All copy lives in `Frontend/src/data/portfolio.json`. Respects `prefers-reduced-motion`.
 
 ```bash
-portfolio/
-│
-├── Frontend/                 # Frontend (React + Vite)
-│   ├── src/
-│   ├── public/
-│   ├── index.html
-│   └── vite.config.js
-│
-├── server/                 # Backend (Node + Express)
-│   ├── routes/
-│   ├── controllers/
-│   ├── middlewares/
-│   ├── app.js
-│   └── server.js
-│
-├── .gitignore
-├── package.json            # Root scripts
-├── README.md
-└── .gitignore
+cd Frontend
+npm install
+npm run dev
+```
