@@ -1,7 +1,8 @@
 import { motion, AnimatePresence, useScroll, useTransform, useInView, useReducedMotion } from 'motion/react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Check, Minus } from 'lucide-react';
-import { Lines, Fade, Lights, Logo, Tile, ease, scrollToId } from '../components/ui';
+import { Lines, Fade, Lights, Logo, ease, scrollToId } from '../components/ui';
+import { useLucknowTime } from '../components/Chrome';
 import data from '../data/portfolio.json';
 
 /* ── Cases: statement card with before/now, three roles to pick from ── */
@@ -57,6 +58,18 @@ export function Cases() {
   );
 }
 
+function Availability() {
+  const time = useLucknowTime();
+  return (
+    <div className="avail">
+      <span className="live" style={{ justifySelf: 'start' }}><i />OPEN TO WORK</span>
+      <div className="row"><span>Based in</span><span>Lucknow</span></div>
+      <div className="row"><span>Local time</span><span>{time}</span></div>
+      <div className="row"><span>Works with</span><span>Remote teams</span></div>
+    </div>
+  );
+}
+
 /* ── Plans: two-column comparison, no prices ── */
 export function Plans() {
   const pl = data.plans;
@@ -71,7 +84,7 @@ export function Plans() {
         <div className="plans">
           <div className="plan-labels">
             <div className="plan-visual">
-              <div style={{ width: 170 }}><Tile p={data.shelf[0]} i={0} /></div>
+              <Availability />
             </div>
             {pl.rows.map((r) => <div className="pl-row" key={r.label}>{r.label}</div>)}
           </div>
@@ -154,6 +167,22 @@ export function FAQ() {
   );
 }
 
+/* Handwritten sign-off that writes itself left to right when it comes into view */
+function Signature({ text, lead }) {
+  const ref = useRef(null);
+  const on = useInView(ref, { once: true, margin: '-10% 0px' });
+  return (
+    <div className="signoff" ref={ref}>
+      <span className="small muted">{lead}</span>
+      <motion.span className="signature" aria-label={`Signed, ${text}`}
+        initial={{ clipPath: 'inset(0 100% 0 0)' }} animate={on ? { clipPath: 'inset(0 0% 0 0)' } : {}}
+        transition={{ duration: 1.8, ease: [0.45, 0, 0.2, 1], delay: 0.2 }}>
+        {text}
+      </motion.span>
+    </div>
+  );
+}
+
 /* Scales a line of text so it spans its container's width exactly */
 function useFit(ref, box) {
   useLayoutEffect(() => {
@@ -183,7 +212,7 @@ export function Closing() {
   const l1 = useRef(null), l2 = useRef(null);
   useFit(l1, ref);
   useFit(l2, ref);
-  const pages = [['top', 'Home'], ['work', 'Work'], ['products', 'Products'], ['plans', 'Plans']];
+  const pages = [['top', 'Home'], ['story', 'Story'], ['work', 'Mindfries'], ['products', 'Products'], ['plans', 'Plans']];
 
   return (
     <>
@@ -196,13 +225,7 @@ export function Closing() {
       <footer className="panel">
         <div className="footer">
           <div className="foot-cell foot-brand">
-            <div style={{ display: 'flex', gap: 8, width: '100%', maxWidth: 300, justifyContent: 'center' }}>
-              {data.shelf.slice(0, 3).map((p, i) => (
-                <div key={p.id} style={{ width: '33%', aspectRatio: '4/5', borderRadius: 14, overflow: 'hidden', transform: `rotate(${[-6, 2, 7][i]}deg)`, boxShadow: '0 14px 24px -14px rgba(0,0,0,.5), 0 0 0 1px rgba(0,0,0,.05)', background: '#fff' }}>
-                  <img src={p.img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} loading="lazy" />
-                </div>
-              ))}
-            </div>
+            <Signature text={closing.signature} lead={closing.signoff} />
             <p className="small muted" style={{ margin: 0 }}>{closing.tagline}</p>
             <a className="btn-red sm" href={`mailto:${meta.email}`}>{closing.cta}</a>
           </div>
@@ -212,6 +235,7 @@ export function Closing() {
           </div>
           <div className="foot-cell">
             <h4>PRODUCTS</h4>
+            <a href="https://mindfries.com" target="_blank" rel="noopener noreferrer">Mindfries</a>
             {data.products.slice(0, 4).map((p) => <a key={p.id} href={p.deliverable.url} target="_blank" rel="noopener noreferrer">{p.tab}</a>)}
           </div>
           <div className="foot-cell">

@@ -25,6 +25,13 @@ export function scrollToId(id) {
   else el.scrollIntoView({ behavior: 'smooth' });
 }
 
+/* Hero tiles open their product: Mindfries has its own section, the rest live in the tabs */
+export function openProduct(id) {
+  if (id === 'mindfries') { scrollToId('work'); return; }
+  window.dispatchEvent(new CustomEvent('open-product', { detail: id }));
+  scrollToId('products');
+}
+
 /* Headline whose lines rise out of a mask */
 export function Lines({ lines, as: Tag = 'h2', className = 'big', delay = 0, onLoad = false, style }) {
   const Comp = motion[Tag];
@@ -79,9 +86,12 @@ export function Tile({ p, i = 0, float = true, onLoad = false }) {
       whileHover={{ y: -14, rotate: 0, scale: 1.04 }}
       onHoverStart={() => setHover(true)} onHoverEnd={() => setHover(false)}
       onFocus={() => setHover(true)} onBlur={() => setHover(false)}
+      onClick={() => openProduct(p.id)}
+      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), openProduct(p.id))}
+      role="button"
       tabIndex={0}
-      aria-label={`${p.name}: ${p.line}`}
-      style={{ overflow: 'visible' }}
+      aria-label={`${p.name}: ${p.line} Open it.`}
+      style={{ overflow: 'visible', cursor: 'pointer' }}
     >
       <motion.div
         style={{ position: 'absolute', inset: 0, borderRadius: 'inherit', overflow: 'hidden' }}
@@ -95,7 +105,7 @@ export function Tile({ p, i = 0, float = true, onLoad = false }) {
         {hover && (
           <motion.div className="bubble" initial={{ opacity: 0, y: 8, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 6, scale: 0.95 }} transition={{ duration: 0.25, ease }}>
             <p>Hey, I’m {p.name}.</p>
-            <p>{p.line}</p>
+            <p>{p.line} Click to open.</p>
           </motion.div>
         )}
       </AnimatePresence>

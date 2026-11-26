@@ -11,7 +11,9 @@ export function Loader({ onDone }) {
   const [gone, setGone] = useState(false);
 
   useEffect(() => {
-    if (reduce) { setGone(true); onDone(); return; }
+    let seen = false;
+    try { seen = sessionStorage.getItem('cg-seen') === '1'; sessionStorage.setItem('cg-seen', '1'); } catch { /* storage off */ }
+    if (reduce || seen) { setGone(true); onDone(); return; }
     document.documentElement.style.overflow = 'hidden';
     const c = animate(0, 100, {
       duration: 1.9, ease: [0.65, 0, 0.35, 1], onUpdate: (v) => setN(Math.round(v)),
@@ -40,9 +42,33 @@ export function Loader({ onDone }) {
   );
 }
 
+/* Outlined rolling digits, shared by the loader and the story section */
+export function Roller({ value, className = 'loader-digits', style }) {
+  return (
+    <div className={className} style={style} aria-hidden="true">
+      {String(value).split('').map((ch, i) => (
+        <div className="loader-col" key={i}>
+          <motion.div animate={{ y: `${-Number(ch)}em` }} transition={{ type: 'spring', stiffness: 160, damping: 22 }}>
+            {Array.from({ length: 10 }, (_, k) => <span key={k} style={{ height: '1em', display: 'block' }}>{k}</span>)}
+          </motion.div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* Live clock in Lucknow, so visitors know when a reply is likely */
+export function useLucknowTime() {
+  const fmt = () => new Intl.DateTimeFormat('en-IN', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' }).format(new Date());
+  const [t, setT] = useState(fmt);
+  useEffect(() => { const id = setInterval(() => setT(fmt()), 20000); return () => clearInterval(id); }, []);
+  return t;
+}
+
 const LINKS = [
   ['top', 'Home'],
-  ['work', 'Work'],
+  ['story', 'Story'],
+  ['work', 'Mindfries'],
   ['products', 'Products'],
   ['plans', 'Plans'],
   ['contact', 'Contact'],
@@ -51,6 +77,7 @@ const LINKS = [
 /* Nav: black tab hanging from the top that drops open into a menu */
 export function Nav({ ready }) {
   const [open, setOpen] = useState(false);
+  const time = useLucknowTime();
   useEffect(() => {
     const k = (e) => e.key === 'Escape' && setOpen(false);
     window.addEventListener('keydown', k);
@@ -81,7 +108,8 @@ export function Nav({ ready }) {
                     {label}<ArrowUpRight size={22} strokeWidth={1.6} />
                   </motion.a>
                 ))}
-                <div className="menu-foot">
+                <div className="menu-foot"><span>{time} in Lucknow</span><span>Open to work</span></div>
+                <div className="menu-foot" style={{ paddingTop: 8 }}>
                   <a href={`mailto:${data.meta.email}`}>{data.meta.email}</a>
                   <a href={data.meta.resume} target="_blank" rel="noopener noreferrer">Resume</a>
                 </div>

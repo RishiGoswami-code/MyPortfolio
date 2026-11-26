@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Loader, Nav } from './components/Chrome';
 import { useSmoothScroll } from './components/ui';
 import { Hero, Workspace, Stack } from './sections/Top';
-import { Products, Questions, Benefits } from './sections/Middle';
+import { Products, Story, Benefits } from './sections/Middle';
 import { Cases, Plans, FAQ, Closing } from './sections/Bottom';
 
 export default function App() {
@@ -15,10 +15,10 @@ export default function App() {
       <Nav ready={ready} />
       <main>
         <Hero ready={ready} />
+        <Story />
         <Workspace />
-        <Stack />
         <Products />
-        <Questions />
+        <Stack />
         <Benefits />
         <Cases />
         <Plans />

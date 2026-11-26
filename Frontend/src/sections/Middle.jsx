@@ -1,7 +1,8 @@
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent, useReducedMotion, useInView } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, MoreHorizontal, Check } from 'lucide-react';
-import { Lines, Fade, Lights, Shelf, ease } from '../components/ui';
+import { Lines, Fade, Lights, ease } from '../components/ui';
+import { Roller } from '../components/Chrome';
 import data from '../data/portfolio.json';
 
 /* ── Products and proof: tabs swap the prompt and the real product media ── */
@@ -42,12 +43,17 @@ function Media({ m, inset }) {
 
 export function Products() {
   const [id, setId] = useState(data.products[0].id);
+  useEffect(() => {
+    const f = (e) => data.products.some((x) => x.id === e.detail) && setId(e.detail);
+    window.addEventListener('open-product', f);
+    return () => window.removeEventListener('open-product', f);
+  }, []);
   const p = data.products.find((x) => x.id === id);
   return (
     <section className="panel" id="products" style={{ padding: '140px 0 120px' }}>
       <div className="inner center">
-        <Lines lines={['Products and', 'proof of work']} />
-        <Fade><p className="sub">See what each product does, then open the real thing: live sites, source code and merged pull requests.</p></Fade>
+        <Lines lines={data.productsHead.title} />
+        <Fade><p className="sub">{data.productsHead.sub}</p></Fade>
       </div>
       <div className="inner">
         <div className="tabs" role="tablist" aria-label="Products">
@@ -92,37 +98,51 @@ export function Products() {
   );
 }
 
-/* ── Sticky questions: one headline at a time while a contribution grid grows ── */
-const COLS = 60;
+/* ── Story: the year rolls forward while the grid grows, one chapter per screen ── */
+const COLS = 64;
 const cells = Array.from({ length: COLS * 7 }, (_, i) => {
   const x = Math.floor(i / 7), yy = i % 7;
   const h = Math.sin(x * 1.7 + yy * 2.3) * 0.5 + 0.5;
-  return { t: (x / COLS) * 0.55 + h * 0.45, lvl: Math.min(4, 1 + Math.floor(((x * 13 + yy * 7) % 10) / 2.6)) };
+  return { t: (x / COLS) * 0.6 + h * 0.4, lvl: Math.min(4, 1 + Math.floor(((x * 13 + yy * 7) % 10) / 2.6)) };
 });
 const shades = ['#e9e9e9', '#cfe8c4', '#9fd18c', '#6dba57', '#3f9a37'];
 
-export function Questions() {
+export function Story() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
   const [p, setP] = useState(0);
   useMotionValueEvent(scrollYProgress, 'change', setP);
-  const qs = data.questions;
-  const idx = Math.min(qs.length - 1, Math.floor(p * qs.length));
+  const ch = data.story.chapters;
+  const idx = Math.min(ch.length - 1, Math.floor(p * ch.length));
+  const c = ch[idx];
 
   return (
-    <section className="panel qs" ref={ref} aria-label="Questions you might have">
+    <section className="panel qs" ref={ref} id="story" aria-label={data.story.label}>
       <div className="qs-stick">
-        <AnimatePresence mode="wait">
-          <motion.div key={idx} className="qs-q"
-            initial={{ opacity: 0, y: 60, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} exit={{ opacity: 0, y: -60, filter: 'blur(8px)' }}
-            transition={{ duration: 0.55, ease }}>
-            <h2 className="big">{qs[idx].q}</h2>
-            <p className="sub">{qs[idx].a}</p>
-          </motion.div>
-        </AnimatePresence>
+        <div className="story-top">
+          <span className="pw-label">{data.story.label}</span>
+          <div className="story-dots" aria-hidden="true">
+            {ch.map((x, k) => <span key={x.year} className={k <= idx ? 'on' : ''}>{x.range}</span>)}
+          </div>
+        </div>
+        <div className="story-body" aria-hidden="true">
+          <Roller value={c.year} className="loader-digits story-year" />
+          <AnimatePresence mode="wait">
+            <motion.div key={idx}
+              initial={{ opacity: 0, y: 50, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} exit={{ opacity: 0, y: -40, filter: 'blur(8px)' }}
+              transition={{ duration: 0.55, ease }}>
+              <p className="big">{c.h}</p>
+              <p className="sub story-p">{c.p}</p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <div className="sr-only">
+          <h2>{data.story.label}</h2>
+          {ch.map((x) => <p key={x.year}>{x.range}: {x.h} {x.p}</p>)}
+        </div>
         <div className="grid-garden" aria-hidden="true">
-          {cells.map((c, i) => (
-            <i key={i} style={{ background: p > c.t ? shades[c.lvl] : shades[0], transition: 'background-color .5s' }} />
+          {cells.map((cell, i) => (
+            <i key={i} style={{ background: p > cell.t ? shades[cell.lvl] : shades[0], transition: 'background-color .5s' }} />
           ))}
         </div>
       </div>
@@ -130,7 +150,50 @@ export function Questions() {
   );
 }
 
-/* ── Benefits: numbered glass cards fly in over the product shelf ── */
+/* ── Benefits: numbered glass cards fly in, each carrying its own proof ── */
+function BenefitViz({ kind, on }) {
+  if (kind === 'tokens') return (
+    <div className="bv">
+      {[['Before', '3,000,000', 1, '#d6d6d6'], ['After', '20,000', 0.012, 'var(--red)']].map(([k, v, w, c], i) => (
+        <div key={k} style={{ display: 'grid', gap: 4 }}>
+          <div className="bv-row"><span>{k}</span><b>{v}</b></div>
+          <div className="bar"><motion.div initial={{ width: '100%' }} animate={on ? { width: `${Math.max(w * 100, 2)}%` } : {}} transition={{ duration: 1.4, ease, delay: 0.3 + i * 0.15 }} style={{ background: c }} /></div>
+        </div>
+      ))}
+    </div>
+  );
+  if (kind === 'latency') return (
+    <div className="bv" style={{ justifyItems: 'center' }}>
+      <svg viewBox="0 0 120 70" width="130" aria-hidden="true">
+        <path d="M10 62 A50 50 0 0 1 110 62" fill="none" stroke="#e3e3e3" strokeWidth="9" strokeLinecap="round" />
+        <motion.path d="M10 62 A50 50 0 0 1 110 62" fill="none" stroke="var(--green)" strokeWidth="9" strokeLinecap="round"
+          initial={{ pathLength: 0 }} animate={on ? { pathLength: 0.22 } : {}} transition={{ duration: 1.2, ease, delay: 0.3 }} />
+      </svg>
+      <div className="bv-row" style={{ justifyContent: 'center', gap: 6 }}><b>&lt; 100 ms</b><span>reads</span></div>
+    </div>
+  );
+  if (kind === 'audit') return (
+    <div className="bv">
+      {['Broken links', 'Missing metadata', 'HTML structure', 'SEO gaps'].map((t, i) => (
+        <motion.div key={t} className="bv-row" initial={{ opacity: 0.35 }} animate={on ? { opacity: 1 } : {}} transition={{ delay: 0.3 + i * 0.25 }}>
+          <span>{t}</span>
+          <motion.span initial={{ scale: 0 }} animate={on ? { scale: 1 } : {}} transition={{ delay: 0.45 + i * 0.25, type: 'spring', stiffness: 400, damping: 18 }}><Check size={14} color="var(--green)" /></motion.span>
+        </motion.div>
+      ))}
+    </div>
+  );
+  return (
+    <div className="bv">
+      <div className="bv-doc">
+        {[80, 60, 72].map((w, i) => <i key={i} style={{ width: `${w}%` }} />)}
+      </div>
+      <motion.div className="bv-row" initial={{ opacity: 0, y: 6 }} animate={on ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.6 }}>
+        <span>Requirements</span><span>→</span><b>Deployed</b>
+      </motion.div>
+    </div>
+  );
+}
+
 function useNarrow(q = '(max-width: 900px)') {
   const [m, setM] = useState(() => typeof window !== 'undefined' && window.matchMedia(q).matches);
   useEffect(() => {
@@ -157,6 +220,13 @@ export function Benefits() {
     };
   };
   const anims = [T(0), T(1), T(2), T(3)];
+  const stageRef = useRef(null);
+  const stageIn = useInView(stageRef, { once: true, margin: '-20% 0px' });
+  const [landed, setLanded] = useState([false, false, false, false]);
+  useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    setLanded((L) => (L.every(Boolean) ? L : L.map((x, i) => x || v > 0.08 + i * 0.13 + 0.18)));
+  });
+  useEffect(() => { if (reduce && stageIn) setLanded([true, true, true, true]); }, [reduce, stageIn]);
 
   return (
     <section className="panel ben" ref={ref}>
@@ -165,12 +235,12 @@ export function Benefits() {
           <Lines lines={b.title} />
           <Fade><p className="sub" style={{ maxWidth: 420, margin: '14px auto 0' }}>{b.sub}</p></Fade>
         </div>
-        <div className="ben-stage">
-          <Shelf items={data.shelf} />
+        <div className="ben-stage" ref={stageRef}>
           <div className="ben-cards">
             {b.items.map((it, i) => (
               <motion.article key={it.n} className="bcard" style={anims[i]}>
                 <span className="n">{it.n}</span>
+                <BenefitViz kind={it.viz} on={landed[i]} />
                 <h3 className="h3">{it.t}</h3>
                 <p>{it.d}</p>
               </motion.article>

@@ -79,9 +79,9 @@ export function Workspace() {
               <motion.div className="msg-bot" {...step(2.3)}>
                 <span className="avatar me">CG</span>
                 <div className="card" style={{ flex: 1, display: 'grid', gap: 12 }}>
-                  <div>Shipped. Here’s the live product.</div>
+                  <div>Shipped. It’s live.</div>
                   <a href="https://mindfries.com" target="_blank" rel="noopener noreferrer" style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: 14, alignItems: 'center' }}>
-                    <img src="/products/mindfries-site.webp" alt="mindfries.com landing page" style={{ borderRadius: 10, boxShadow: '0 0 0 1px var(--line)' }} loading="lazy" />
+                    <img src="/products/mindfries-poster.webp" alt="Mindfries launch card" style={{ borderRadius: 10, boxShadow: '0 0 0 1px var(--line)' }} loading="lazy" />
                     <div><div>mindfries.com</div><div className="small muted">AI hiring platform</div></div>
                   </a>
                   <div className="bar" aria-hidden="true"><motion.div initial={{ width: '0%' }} animate={live ? { width: '100%' } : {}} transition={{ duration: 1.6, ease, delay: 2.6 }} style={{ background: 'var(--green)' }} /></div>
@@ -121,11 +121,6 @@ export function Stack() {
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const ys = [useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [90, -90]), useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [40, -40]), useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [140, -140])];
-  const fan = [
-    { src: '/products/drishti-lab-poster.webp', r: -12, x: '-108%' },
-    { src: '/products/ozymor-site.webp', r: 10, x: '8%' },
-    { src: '/products/mindfries-site.webp', r: -1, x: '-50%', z: 2 },
-  ];
 
   return (
     <section className="panel stack-sec" ref={ref}>
@@ -142,15 +137,6 @@ export function Stack() {
       <div className="inner center" style={{ position: 'relative', zIndex: 2 }}>
         <Lines lines={stack.title} />
         <Fade><p className="sub">{stack.sub}</p></Fade>
-        <div className="fan" aria-hidden="true">
-          {fan.map((f, i) => (
-            <motion.div key={f.src} style={{ zIndex: f.z || 1, x: f.x }}
-              initial={{ y: 80, opacity: 0, rotate: 0 }} whileInView={{ y: 0, opacity: 1, rotate: f.r }} viewport={{ once: true }}
-              transition={{ type: 'spring', stiffness: 110, damping: 16, delay: 0.2 + i * 0.12 }}>
-              <img src={f.src} alt="" loading="lazy" />
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

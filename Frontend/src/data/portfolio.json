@@ -9,170 +9,392 @@
     "resume": "/chandan-giri-resume.pdf",
     "location": "Lucknow, India",
     "links": [
-      { "label": "GitHub", "url": "https://github.com/RishiGoswami-code" },
-      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/chandan-giri-307927247/" },
-      { "label": "X", "url": "https://x.com/RishiGoswamii" },
-      { "label": "Threads", "url": "https://www.threads.com/@chandu__tx/" }
+      {
+        "label": "GitHub",
+        "url": "https://github.com/RishiGoswami-code"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/chandan-giri-307927247/"
+      },
+      {
+        "label": "X",
+        "url": "https://x.com/RishiGoswamii"
+      },
+      {
+        "label": "Threads",
+        "url": "https://www.threads.com/@chandu__tx/"
+      }
     ]
   },
-
   "hero": {
-    "title": ["Ships AI", "end to end."],
-    "sub": "Tell Chandan what you need. He designs the model, the API and the interface, and takes it to production.",
+    "title": [
+      "Ships AI",
+      "end to end."
+    ],
+    "sub": "I’m Chandan, a CS student in Lucknow. I design the model, the API and the interface, and take them to production. Four products so far.",
     "cta": "Hire Chandan"
   },
-
   "shelf": [
-    { "id": "mindfries", "name": "Mindfries", "line": "Hiring on evidence.", "img": "/products/mindfries-site.webp", "tint": "#7c5cff" },
-    { "id": "drishti", "name": "DRISHTI-UGV", "line": "Driving without GPS.", "img": "/products/drishti-lab-poster.webp", "tint": "#138a8a" },
-    { "id": "ozymor", "name": "OzymorLab", "line": "Grading handwritten exams.", "img": "/products/ozymor-dashboard.webp", "tint": "#b7d94a" },
-    { "id": "viking", "name": "Viking Validators", "line": "Catching forged documents.", "img": "/products/viking-app.webp", "tint": "#4caf50" },
-    { "id": "cgc", "name": "CodeGraphContext", "line": "Code as a graph for AI.", "img": "/products/cgc-graph.webp", "tint": "#e0874d" }
+    {
+      "id": "mindfries",
+      "name": "Mindfries",
+      "line": "Hiring on evidence.",
+      "img": "/products/mindfries-site.webp",
+      "tint": "#7c5cff"
+    },
+    {
+      "id": "drishti",
+      "name": "DRISHTI-UGV",
+      "line": "Driving without GPS.",
+      "img": "/products/drishti-lab-poster.webp",
+      "tint": "#138a8a"
+    },
+    {
+      "id": "ozymor",
+      "name": "OzymorLab",
+      "line": "Grading handwritten exams.",
+      "img": "/products/ozymor-dashboard.webp",
+      "tint": "#b7d94a"
+    },
+    {
+      "id": "viking",
+      "name": "Viking Validators",
+      "line": "Catching forged documents.",
+      "img": "/products/viking-app.webp",
+      "tint": "#4caf50"
+    },
+    {
+      "id": "cgc",
+      "name": "CodeGraphContext",
+      "line": "Code as a graph for AI.",
+      "img": "/products/cgc-graph.webp",
+      "tint": "#e0874d"
+    }
   ],
-
   "workspace": {
-    "title": ["Now let’s see", "the work."],
-    "sub": "Give Chandan a goal, then watch it get planned, split into workstreams and shipped.",
+    "title": [
+      "Why Mindfries",
+      "exists."
+    ],
+    "sub": "Hiring still runs on résumés and claims. Here’s what happens when you ask for something better.",
     "request": "Build a hiring platform that checks what engineers can actually do.",
     "reply": "On it. I’ll split this into three workstreams.",
     "streams": [
-      { "name": "Evaluation engine", "status": "Live coding tasks", "color": "#7c5cff" },
-      { "name": "Design review", "status": "System design assessment", "color": "#fcc843" },
-      { "name": "Interview agent", "status": "AI-conducted interviews", "color": "#5faf50" }
+      {
+        "name": "Evaluation engine",
+        "status": "Live coding tasks",
+        "color": "#7c5cff"
+      },
+      {
+        "name": "Design review",
+        "status": "System design assessment",
+        "color": "#fcc843"
+      },
+      {
+        "name": "Interview agent",
+        "status": "AI-conducted interviews",
+        "color": "#5faf50"
+      }
     ],
-    "stack": ["FastAPI", "React + TypeScript", "PostgreSQL", "Claude API"],
-    "deliverables": ["Live coding evaluation", "System design assessment", "AI-conducted interviews"]
-  },
-
-  "stack": {
-    "title": ["Your stack,", "already fluent."],
-    "sub": "Python and TypeScript on the web, C++ and CUDA on the robot. The tools you already use are the ones he ships with.",
-    "items": [
-      { "name": "FastAPI", "mark": "Fa", "color": "#059487" },
-      { "name": "React", "mark": "Re", "color": "#1f9bd1" },
-      { "name": "TypeScript", "mark": "Ts", "color": "#3178c6" },
-      { "name": "PostgreSQL", "mark": "Pg", "color": "#336791" },
-      { "name": "Redis", "mark": "Rd", "color": "#d82c20" },
-      { "name": "Docker", "mark": "Dk", "color": "#1d63ed" },
-      { "name": "Claude API", "mark": "Cl", "color": "#d97757" },
-      { "name": "ROS 2", "mark": "R2", "color": "#22314e" },
-      { "name": "CUDA", "mark": "Cu", "color": "#76b900" },
-      { "name": "TensorFlow", "mark": "Tf", "color": "#ff8f00" },
-      { "name": "OpenCV", "mark": "Cv", "color": "#5c3ee8" },
-      { "name": "C++", "mark": "C+", "color": "#00599c" }
+    "stack": [
+      "FastAPI",
+      "React + TypeScript",
+      "PostgreSQL",
+      "Claude API"
+    ],
+    "deliverables": [
+      "Live coding evaluation",
+      "System design assessment",
+      "AI-conducted interviews"
     ]
   },
-
+  "stack": {
+    "title": [
+      "Your stack,",
+      "already fluent."
+    ],
+    "sub": "Python and TypeScript on the web, C++ and CUDA on the robot. The tools you already use are the ones he ships with.",
+    "items": [
+      {
+        "name": "FastAPI",
+        "mark": "Fa",
+        "color": "#059487"
+      },
+      {
+        "name": "React",
+        "mark": "Re",
+        "color": "#1f9bd1"
+      },
+      {
+        "name": "TypeScript",
+        "mark": "Ts",
+        "color": "#3178c6"
+      },
+      {
+        "name": "PostgreSQL",
+        "mark": "Pg",
+        "color": "#336791"
+      },
+      {
+        "name": "Redis",
+        "mark": "Rd",
+        "color": "#d82c20"
+      },
+      {
+        "name": "Docker",
+        "mark": "Dk",
+        "color": "#1d63ed"
+      },
+      {
+        "name": "Claude API",
+        "mark": "Cl",
+        "color": "#d97757"
+      },
+      {
+        "name": "ROS 2",
+        "mark": "R2",
+        "color": "#22314e"
+      },
+      {
+        "name": "CUDA",
+        "mark": "Cu",
+        "color": "#76b900"
+      },
+      {
+        "name": "TensorFlow",
+        "mark": "Tf",
+        "color": "#ff8f00"
+      },
+      {
+        "name": "OpenCV",
+        "mark": "Cv",
+        "color": "#5c3ee8"
+      },
+      {
+        "name": "C++",
+        "mark": "C+",
+        "color": "#00599c"
+      }
+    ]
+  },
   "products": [
-    {
-      "id": "mindfries",
-      "tab": "Mindfries",
-      "prompt": "Hire engineers for what they can do, not what they claim.",
-      "chips": ["FastAPI", "React", "Claude API"],
-      "title": "Mindfries, AI hiring platform",
-      "media": { "type": "image", "src": "/products/mindfries-site.webp", "alt": "The mindfries.com landing page" },
-      "rows": [
-        { "t": "Live coding evaluation", "s": "Real tasks, not quizzes" },
-        { "t": "System design assessment", "s": "Structured, reviewable" },
-        { "t": "AI-conducted interviews", "s": "Every answer recorded" }
-      ],
-      "deliverable": { "label": "mindfries.com", "url": "https://mindfries.com" }
-    },
     {
       "id": "drishti",
       "tab": "DRISHTI-UGV",
       "prompt": "Navigate an outdoor vehicle with no GPS, and prove it is safe.",
-      "chips": ["ROS 2", "C++", "CUDA"],
-      "title": "DRISHTI-UGV terrain lab",
-      "media": { "type": "video", "src": "/products/drishti-lab.mp4", "poster": "/products/drishti-lab-poster.webp", "alt": "The DRISHTI-UGV terrain lab running a gauntlet course" },
-      "rows": [
-        { "t": "Stereo-vision SLAM", "s": "GPS-denied mapping" },
-        { "t": "Safety supervisor", "s": "~5,000 safety assertions" },
-        { "t": "Parity with C++ cores", "s": "Logic verified, 520/520" }
+      "chips": [
+        "ROS 2",
+        "C++",
+        "CUDA"
       ],
-      "deliverable": { "label": "github.com/…/drishti-ugv", "url": "https://github.com/RishiGoswami-code/drishti-ugv" }
+      "title": "DRISHTI-UGV terrain lab",
+      "media": {
+        "type": "video",
+        "src": "/products/drishti-lab.mp4",
+        "poster": "/products/drishti-lab-poster.webp",
+        "alt": "The DRISHTI-UGV terrain lab running a gauntlet course"
+      },
+      "rows": [
+        {
+          "t": "Stereo-vision SLAM",
+          "s": "GPS-denied mapping"
+        },
+        {
+          "t": "Safety supervisor",
+          "s": "~5,000 safety assertions"
+        },
+        {
+          "t": "Parity with C++ cores",
+          "s": "Logic verified, 520/520"
+        }
+      ],
+      "deliverable": {
+        "label": "github.com/…/drishti-ugv",
+        "url": "https://github.com/RishiGoswami-code/drishti-ugv"
+      }
     },
     {
       "id": "ozymor",
       "tab": "OzymorLab",
       "prompt": "Turn handwritten answer sheets into graded, auditable evaluations.",
-      "chips": ["OCR", "LLMs", "FastAPI"],
-      "title": "OzymorLab assessment portal",
-      "media": { "type": "image", "src": "/products/ozymor-site.webp", "alt": "The OzymorLab landing page" },
-      "inset": "/products/ozymor-dashboard.webp",
-      "rows": [
-        { "t": "OCR on handwriting", "s": "Scanned sheets in" },
-        { "t": "Rubric-grounded grading", "s": "LLM with explanations" },
-        { "t": "Analytics for schools", "s": "Students, teachers, admins" }
+      "chips": [
+        "OCR",
+        "LLMs",
+        "FastAPI"
       ],
-      "deliverable": { "label": "ozymorlab.vercel.app", "url": "https://ozymorlab.vercel.app" }
+      "title": "OzymorLab assessment portal",
+      "media": {
+        "type": "image",
+        "src": "/products/ozymor-site.webp",
+        "alt": "The OzymorLab landing page"
+      },
+      "rows": [
+        {
+          "t": "OCR on handwriting",
+          "s": "Scanned sheets in"
+        },
+        {
+          "t": "Rubric-grounded grading",
+          "s": "LLM with explanations"
+        },
+        {
+          "t": "Analytics for schools",
+          "s": "Students, teachers, admins"
+        }
+      ],
+      "deliverable": {
+        "label": "ozymorlab.vercel.app",
+        "url": "https://ozymorlab.vercel.app"
+      }
     },
     {
       "id": "viking",
       "tab": "Viking Validators",
       "prompt": "Flag forged academic documents before anyone acts on them.",
-      "chips": ["TensorFlow", "OpenCV", "FastAPI"],
-      "title": "Document authenticity check",
-      "media": { "type": "image", "src": "/products/viking-app.webp", "alt": "The Viking Validators document authenticity form", "fit": "contain" },
-      "rows": [
-        { "t": "Ensemble ML pipeline", "s": "94% detection accuracy" },
-        { "t": "Signature and seal similarity", "s": "Compared to references" },
-        { "t": "Smart India Hackathon 2025", "s": "National finalist" }
+      "chips": [
+        "TensorFlow",
+        "OpenCV",
+        "FastAPI"
       ],
-      "deliverable": { "label": "github.com/…/VikingMachineLearningModel", "url": "https://github.com/RishiGoswami-code/VikingMachineLearningModel" }
+      "title": "Document authenticity check",
+      "media": {
+        "type": "image",
+        "src": "/products/viking-app.webp",
+        "alt": "The Viking Validators document authenticity form",
+        "fit": "contain"
+      },
+      "rows": [
+        {
+          "t": "Ensemble ML pipeline",
+          "s": "94% detection accuracy"
+        },
+        {
+          "t": "Signature and seal similarity",
+          "s": "Compared to references"
+        },
+        {
+          "t": "Smart India Hackathon 2025",
+          "s": "National finalist"
+        }
+      ],
+      "deliverable": {
+        "label": "github.com/…/VikingMachineLearningModel",
+        "url": "https://github.com/RishiGoswami-code/VikingMachineLearningModel"
+      }
     },
     {
       "id": "quant",
       "tab": "Quant models",
       "prompt": "Forecast gas prices and predict loan defaults for a JPMorgan Chase case study.",
-      "chips": ["Python", "Time series", "scikit-learn"],
+      "chips": [
+        "Python",
+        "Time series",
+        "scikit-learn"
+      ],
       "title": "Natural gas price analysis",
-      "media": { "type": "image", "src": "/products/quant-price-trend.webp", "alt": "Natural gas prices over time, from the QuantAnalysis repo", "fit": "contain", "bg": "#fff" },
+      "media": {
+        "type": "image",
+        "src": "/products/quant-price-trend.webp",
+        "alt": "Natural gas prices over time, from the QuantAnalysis repo",
+        "fit": "contain",
+        "bg": "#fff"
+      },
       "inset": "/products/quant-seasonality.webp",
       "rows": [
-        { "t": "Price forecasting", "s": "Trend and seasonality" },
-        { "t": "Storage contract valuation", "s": "Commodity pricing" },
-        { "t": "Probability of default", "s": "~15% better prediction" }
+        {
+          "t": "Price forecasting",
+          "s": "Trend and seasonality"
+        },
+        {
+          "t": "Storage contract valuation",
+          "s": "Commodity pricing"
+        },
+        {
+          "t": "Probability of default",
+          "s": "~15% better prediction"
+        }
       ],
-      "deliverable": { "label": "github.com/…/QuantAnalysis", "url": "https://github.com/RishiGoswami-code/QuantAnalysis" }
+      "deliverable": {
+        "label": "github.com/…/QuantAnalysis",
+        "url": "https://github.com/RishiGoswami-code/QuantAnalysis"
+      }
     },
     {
       "id": "cgc",
       "tab": "CodeGraphContext",
       "prompt": "Document an MCP server that turns codebases into graphs for AI assistants.",
-      "chips": ["MCP", "Docs", "Open source"],
-      "title": "CodeGraphContext, merged PR #875",
-      "media": { "type": "image", "src": "/products/cgc-graph.webp", "alt": "A CodeGraphContext code graph, from the project's MIT-licensed repo", "bg": "#1a1a1a" },
-      "rows": [
-        { "t": "Documentation", "s": "Merged upstream" },
-        { "t": "4k+ stars", "s": "On the upstream repo" },
-        { "t": "Open-source contributor", "s": "Also sktime, AOSSIE, Stability Nexus" }
+      "chips": [
+        "MCP",
+        "Docs",
+        "Open source"
       ],
-      "deliverable": { "label": "Pull request #875", "url": "https://github.com/CodeGraphContext/CodeGraphContext/pull/875" },
+      "title": "CodeGraphContext, merged PR #875",
+      "media": {
+        "type": "image",
+        "src": "/products/cgc-graph.webp",
+        "alt": "A CodeGraphContext code graph, from the project's MIT-licensed repo",
+        "bg": "#1a1a1a"
+      },
+      "rows": [
+        {
+          "t": "Documentation",
+          "s": "Merged upstream"
+        },
+        {
+          "t": "4k+ stars",
+          "s": "On the upstream repo"
+        },
+        {
+          "t": "Open-source contributor",
+          "s": "Also sktime, AOSSIE, Stability Nexus"
+        }
+      ],
+      "deliverable": {
+        "label": "Pull request #875",
+        "url": "https://github.com/CodeGraphContext/CodeGraphContext/pull/875"
+      },
       "credit": "Graph image: CodeGraphContext (MIT)"
     }
   ],
-
-  "questions": [
-    { "q": "Can’t AI already write the code?", "a": "It writes snippets. Someone still has to design the system, ship it and keep it running." },
-    { "q": "Why one engineer, then?", "a": "One person owning the model, the API and the interface moves faster than three handoffs." },
-    { "q": "What changes for you?", "a": "Fewer meetings about who owns what. More of it in production." },
-    { "q": "More shipped, less overhead.", "a": "Four products from zero to production in two years." }
-  ],
-
   "benefits": {
-    "title": ["Here are the", "benefits you get"],
+    "title": [
+      "Here are the",
+      "benefits you get"
+    ],
     "sub": "Less overhead, lower bills and fewer handoffs, each one backed by shipped work.",
     "items": [
-      { "n": "01", "t": "Less explaining", "d": "Works from a goal, not a ticket. Turned business requirements into deployed software at MMCS." },
-      { "n": "02", "t": "Lower LLM bills", "d": "Redesigned Sendlume’s prompt pipelines: 3M tokens down to 20K per workflow." },
-      { "n": "03", "t": "Less waiting", "d": "Real-time dashboards under 100ms, on a queue handling 10,000+ events a day." },
-      { "n": "04", "t": "Less busywork", "d": "An LLM layer at AMIPI turns site audits into prioritized fixes, so nobody checks pages by hand." }
+      {
+        "n": "01",
+        "t": "Less explaining",
+        "d": "Works from a goal, not a ticket. Turned business requirements into deployed software at MMCS.",
+        "viz": "brief"
+      },
+      {
+        "n": "02",
+        "t": "Lower LLM bills",
+        "d": "Redesigned Sendlume’s prompt pipelines: 3M tokens down to 20K per workflow.",
+        "viz": "tokens"
+      },
+      {
+        "n": "03",
+        "t": "Less waiting",
+        "d": "Real-time dashboards under 100ms, on a queue handling 10,000+ events a day.",
+        "viz": "latency"
+      },
+      {
+        "n": "04",
+        "t": "Less busywork",
+        "d": "An LLM layer at AMIPI turns site audits into prioritized fixes, so nobody checks pages by hand.",
+        "viz": "audit"
+      }
     ]
   },
-
   "cases": {
-    "title": ["Real work in", "real numbers."],
+    "title": [
+      "Real work in",
+      "real numbers."
+    ],
     "sub": "Hear it from the changelog. Pick a role to see what changed.",
     "items": [
       {
@@ -207,36 +429,172 @@
       }
     ]
   },
-
   "plans": {
-    "title": ["A step away", "from shipping."],
+    "title": [
+      "A step away",
+      "from shipping."
+    ],
     "sub": "Choose the shape of work that fits. Specifics get settled over email.",
     "columns": [
-      { "name": "Contract", "tag": "", "fit": "A scoped build with a finish line.", "cta": "Scope a project", "subject": "Contract build" },
-      { "name": "Full-time", "tag": "For teams", "fit": "An engineer on your team.", "cta": "Discuss a role", "subject": "Full-time role", "hl": true }
+      {
+        "name": "Contract",
+        "tag": "",
+        "fit": "A scoped build with a finish line.",
+        "cta": "Scope a project",
+        "subject": "Contract build"
+      },
+      {
+        "name": "Full-time",
+        "tag": "For teams",
+        "fit": "An engineer on your team.",
+        "cta": "Discuss a role",
+        "subject": "Full-time role",
+        "hl": true
+      }
     ],
     "rows": [
-      { "label": "Owns schema to UI", "v": ["Included", "Included"], "ok": [true, true] },
-      { "label": "LLM cost and latency work", "v": ["Included", "Included"], "ok": [true, true] },
-      { "label": "Default stack", "v": ["FastAPI, React, Postgres", "Yours or his"], "ok": [true, true] },
-      { "label": "Weekly demos", "v": ["Included", "Your team’s rhythm"], "ok": [true, false] },
-      { "label": "Handover docs", "v": ["Included", "Included"], "ok": [true, true] },
-      { "label": "Long-term ownership", "v": ["Not included", "Included"], "ok": [false, true] },
-      { "label": "Helps hire the team", "v": ["Not included", "Included"], "ok": [false, true] }
+      {
+        "label": "Owns schema to UI",
+        "v": [
+          "Included",
+          "Included"
+        ],
+        "ok": [
+          true,
+          true
+        ]
+      },
+      {
+        "label": "LLM cost and latency work",
+        "v": [
+          "Included",
+          "Included"
+        ],
+        "ok": [
+          true,
+          true
+        ]
+      },
+      {
+        "label": "Default stack",
+        "v": [
+          "FastAPI, React, Postgres",
+          "Yours or his"
+        ],
+        "ok": [
+          true,
+          true
+        ]
+      },
+      {
+        "label": "Weekly demos",
+        "v": [
+          "Included",
+          "Your team’s rhythm"
+        ],
+        "ok": [
+          true,
+          false
+        ]
+      },
+      {
+        "label": "Handover docs",
+        "v": [
+          "Included",
+          "Included"
+        ],
+        "ok": [
+          true,
+          true
+        ]
+      },
+      {
+        "label": "Long-term ownership",
+        "v": [
+          "Not included",
+          "Included"
+        ],
+        "ok": [
+          false,
+          true
+        ]
+      },
+      {
+        "label": "Helps hire the team",
+        "v": [
+          "Not included",
+          "Included"
+        ],
+        "ok": [
+          false,
+          true
+        ]
+      }
     ],
     "note": "Also open to co-founder conversations."
   },
-
   "faq": [
-    { "q": "Where are you based? Do you work remotely?", "a": "Lucknow, India (IST, UTC+05:30). I’m open to remote roles and to overlapping hours with your team." },
-    { "q": "Are you still a student?", "a": "Yes. B.Tech in Computer Science (AI/ML) at Sitare University on a full merit scholarship, shipping production software alongside it since 2025." },
-    { "q": "What’s your default stack?", "a": "FastAPI, React with TypeScript, PostgreSQL, Redis and Docker, with the Claude API for LLM work. ROS 2, C++ and CUDA for robotics." },
-    { "q": "How do I check your claims?", "a": "Every product on this page links to its live site, its source or its merged pull request." }
+    {
+      "q": "Where are you based? Do you work remotely?",
+      "a": "Lucknow, India (IST, UTC+05:30). I’m open to remote roles and to overlapping hours with your team."
+    },
+    {
+      "q": "Are you still a student?",
+      "a": "Yes. B.Tech in Computer Science (AI/ML) at Sitare University on a full merit scholarship, shipping production software alongside it since 2025."
+    },
+    {
+      "q": "What’s your default stack?",
+      "a": "FastAPI, React with TypeScript, PostgreSQL, Redis and Docker, with the Claude API for LLM work. ROS 2, C++ and CUDA for robotics."
+    },
+    {
+      "q": "How do I check your claims?",
+      "a": "Every product on this page links to its live site, its source or its merged pull request."
+    }
   ],
-
   "closing": {
-    "lines": ["LET’S BUILD", "TOGETHER"],
-    "tagline": "One engineer. The whole product.",
-    "cta": "Email Chandan"
+    "lines": [
+      "LET’S BUILD",
+      "TOGETHER"
+    ],
+    "tagline": "Made in Lucknow, one commit at a time.",
+    "cta": "Email Chandan",
+    "signoff": "Thanks for scrolling this far.",
+    "signature": "Chandan"
+  },
+  "story": {
+    "label": "The story so far",
+    "chapters": [
+      {
+        "year": "2021",
+        "range": "2021–2023",
+        "h": "Someone bet on me.",
+        "p": "The Top Neurons Foundation covered my IIT JEE preparation. Three years in a row."
+      },
+      {
+        "year": "2024",
+        "range": "2024",
+        "h": "Then someone bet again.",
+        "p": "A Sitare Foundation merit scholarship covered all of my B.Tech tuition."
+      },
+      {
+        "year": "2025",
+        "range": "2025",
+        "h": "So I started shipping.",
+        "p": "AI pipelines at Sendlume. Founded OzymorLab. Led our ML work to the Smart India Hackathon national finals, out of 10,000+ teams."
+      },
+      {
+        "year": "2026",
+        "range": "2026",
+        "h": "Now I’m building the next bet.",
+        "p": "Mindfries: hire engineers for what they can do, not what they claim."
+      }
+    ]
+  },
+  "productsHead": {
+    "title": [
+      "Everything",
+      "else I shipped."
+    ],
+    "sub": "Robotics, document forensics, exam grading, quant models and open source. Each one opens to the real thing."
   }
 }
